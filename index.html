@@ -1577,7 +1577,7 @@ const S = {
     anat: ['Größte Herzklappe; die septale Insertion liegt physiologisch bis ca. 10 mm apikaler als die Mitralklappe.',
       'Papillarmuskeln: anterior (größter, mit Moderatorband), posterior und septal (inkonstant).',
       'Das septale Segel liegt in direkter Nachbarschaft zu AV-Knoten und His-Bündel.'],
-    norm: ['Öffnungsfläche ca. 6–8 cm²', 'Anulus (4K) ca. 28 ± 5 mm; ≥ 40 mm bzw. > 21 mm/m² = Dilatation'],
+    norm: ['Öffnungsfläche ca. 7–9 cm²', 'Anulus (4K) ca. 28 ± 5 mm; ≥ 40 mm bzw. > 21 mm/m² = Dilatation'],
     klinik: ['Sekundäre (funktionelle) Trikuspidalinsuffizienz durch Anulusdilatation bei Vorhofflimmern, pulmonaler Hypertonie oder Linksherzerkrankung.',
       'Ebstein-Anomalie: apikale Verlagerung des septalen Segels > 8 mm/m², Atrialisierung des RV.',
       'Rechtsseitige Endokarditis bei i. v.-Drogenkonsum; interventionell T-TEER oder Transkatheter-Klappenersatz.'],
@@ -1919,7 +1919,7 @@ function matFor(id, color, o = {}) {
     color: new THREE.Color(color).convertSRGBToLinear(), roughness: o.rough != null ? o.rough : 0.55, metalness: 0,
     side: THREE.DoubleSide,
   });
-  if (o.phys && !MOBILE) { m.clearcoat = 0.45; m.clearcoatRoughness = 0.35; }
+  if (o.phys && !MOBILE) { m.clearcoat = 0.2; m.clearcoatRoughness = 0.5; }
   m.envMapIntensity = 0.55;
   m.userData = { baseOpacity: o.opacity != null ? o.opacity : 1, baseEm: new THREE.Color(o.em || 0x000000).convertSRGBToLinear(), glow: o.glow ? new THREE.Color(o.glow).convertSRGBToLinear() : null };
   const clip = CLIP_GROUPS[S[id].g] || CLIP_IDS[id];
@@ -2016,8 +2016,14 @@ function tube(id, sub, pts, r0, r1, mat, parent, seg, rad) {
   const m = new THREE.Mesh(tubeGeo(curve, r0, r1 == null ? r0 : r1, seg || 64, rad || 16), mat);
   parent.add(m); reg(m, id, sub); m.userData.curve = curve; return m;
 }
-function capAt(curve, t, r, mat, parent, id, sub) { // Kugelkappe für Gefäßenden
-  const m = new THREE.Mesh(new THREE.SphereGeometry(r, 20, 14), mat); curve.getPointAt(t, m.position); parent.add(m); reg(m, id, sub); return m;
+const lumenMat = new THREE.MeshStandardMaterial({ color: new THREE.Color('#3a0e0c').convertSRGBToLinear(), roughness: 0.9, metalness: 0, side: THREE.DoubleSide, clippingPlanes: [clipPlane] });
+function capAt(curve, t, r, mat, parent, id, sub) { // Schnittfläche am Gefäßende (Präparat): Wandring + dunkles Lumen
+  const g = new THREE.Group(); curve.getPointAt(t, g.position);
+  const tan = curve.getTangentAt(t).normalize(); if (t < 0.5) tan.negate();
+  g.quaternion.setFromUnitVectors(V3(0, 0, 1), tan);
+  const wall = new THREE.Mesh(new THREE.RingGeometry(r * 0.72, r * 1.001, 36, 1), mat); wall.position.z = -0.01; g.add(wall); reg(wall, id, sub);
+  const lum = new THREE.Mesh(new THREE.CircleGeometry(r * 0.73, 36), lumenMat); lum.position.z = -0.06; g.add(lum); reg(lum, id, sub);
+  g.userData.cap = true; parent.add(g); return g;
 }
 function spindle(id, sub, a, b, r0, r1, mat, parent) {
   const len = a.distanceTo(b);
@@ -2051,7 +2057,7 @@ const C = {
 const COL = {
   epiV: new THREE.Color('#8a2f27'), epiA: new THREE.Color('#a24a40'), au: new THREE.Color('#9a3e35'),
   endo: new THREE.Color('#8e4639'), endoA: new THREE.Color('#9c5649'), sept: new THREE.Color('#8a4236'),
-  fat: new THREE.Color('#e2bf6e'), fossa: new THREE.Color('#e8c3b0'),
+  fat: new THREE.Color('#d6b47a'), fossa: new THREE.Color('#e8c3b0'),
 };
 Object.values(COL).forEach((c) => c.convertSRGBToLinear());
 
@@ -2059,7 +2065,7 @@ Object.values(COL).forEach((c) => c.convertSRGBToLinear());
 const D = {
   lv: blobDef({ c: [1.3, -2.9, -0.6], r: [2.55, 3.7, 2.5], rot: [0.05, 0, 0.1], taper: 0.55, tp: 1.35, seed: 1, noise: 0.02 }),
   rv: blobDef({ c: [-0.95, -2.4, 1.25], r: [2.55, 3.15, 1.95], rot: [0.12, 0.25, -0.12], taper: 0.5, tp: 1.3, seed: 2, noise: 0.02 }),
-  ra: blobDef({ c: [-2.45, 2.0, -0.3], r: [1.85, 2.05, 1.9], rot: [0, 0, 0.15], seed: 3, noise: 0.03 }),
+  ra: blobDef({ c: [-2.3, 1.95, -0.35], r: [1.72, 1.95, 1.8], rot: [0, 0, 0.15], seed: 3, noise: 0.03 }),
   la: blobDef({ c: L(0.1, 1.35, -2.55).toArray(), r: [2.3, 1.55, 1.7], rot: [0, 0.1, 0], seed: 4, noise: 0.03 }),
   rau: axisDef({ r: [1.35, 0.8, 0.7], seed: 5, noise: 0.08 }, [-3.4, 1.4, 0.5], [-1.5, 2.5, 1.65]),
   lau: axisDef({ r: [1.35, 0.6, 0.62], seed: 6, noise: 0.1 }, [3.3, 1.8, -0.9], [2.1, 2.7, 1.2]),
@@ -2070,7 +2076,7 @@ const CAV = { lv: 0.62, rv: 0.83, ra: 0.86, la: 0.87, rau: 0.7, lau: 0.66 };
 const VD = {
   tk: { c: V3(-1.3, 0.35, 0.35), n: V3(0.32, -1, 0.12), R: 1.2 },
   mk: { c: V3(1.2, 0.4, -1.05), n: V3(-0.05, -1, 0.25), R: 1.3 },
-  ak: { c: V3(0.0, 0.95, -0.15), n: V3(-0.15, 1, 0.22), R: 1.05 },
+  ak: { c: V3(0.0, 0.95, 0.05), n: V3(-0.15, 1, 0.25), R: 1.05 },
   pk: { c: L(1.1, 2.45, 1.25), n: L(0.25, 1, -0.45).sub(L(0, 0, 0)), R: 1.08 },
 };
 Object.values(VD).forEach((v) => v.n.normalize());
@@ -2123,7 +2129,7 @@ let capD = 0;
 function evalAll(x, y, z) { for (let i = 0; i < 6; i++) blobLR(BL[i], i, x, y, z); capD = capsuleChain(RVOT, x, y, z, 0); }
 const oo = (i) => (LN[i] - RR[i]) * 0.85;
 const ss = (i, s) => (LN[i] - RR[i] * s) * 0.85;
-function outerNow() { let f = smin(oo(0), oo(1), 0.35); f = smin(f, capD, 0.45); f = smin(f, oo(2), 0.3); f = smin(f, oo(3), 0.3); f = smin(f, oo(4), 0.25); f = smin(f, oo(5), 0.2); return f; }
+function outerNow() { let f = smin(oo(0), oo(1), 0.35); f = smin(f, capD, 0.45); f = smin(f, oo(2), 0.5); f = smin(f, oo(3), 0.45); f = smin(f, oo(4), 0.25); f = smin(f, oo(5), 0.2); return f; }
 const CV = { c: 0, lvC: 0, rvC: 0, raC: 0, laC: 0 };
 function cavNow(x, y, z) {
   const lvS = ss(0, CAV.lv), rvS = Math.min(ss(1, CAV.rv), capD + 0.36), raS = ss(2, CAV.ra), laS = ss(3, CAV.la);
@@ -2142,7 +2148,7 @@ function cavNow(x, y, z) {
 function solid(x, y, z) { evalAll(x, y, z); return Math.max(outerNow(), -cavNow(x, y, z)); }
 function parts(x, y, z) { evalAll(x, y, z); return { lv: oo(0), rv: oo(1), ra: oo(2), la: oo(3), rau: oo(4), lau: oo(5), rvot: capD }; }
 function outerOf(o) {
-  let f = smin(o.lv, o.rv, 0.35); f = smin(f, o.rvot, 0.45); f = smin(f, o.ra, 0.3); f = smin(f, o.la, 0.3); f = smin(f, o.rau, 0.25); f = smin(f, o.lau, 0.2);
+  let f = smin(o.lv, o.rv, 0.35); f = smin(f, o.rvot, 0.45); f = smin(f, o.ra, 0.5); f = smin(f, o.la, 0.45); f = smin(f, o.rau, 0.25); f = smin(f, o.lau, 0.2);
   return f;
 }
 function cavOf(x, y, z) { evalAll(x, y, z); cavNow(x, y, z); return { ...CV }; }
@@ -2256,7 +2262,7 @@ float fbm(vec3 p){ float a=0.5, s=0.0; for(int i=0;i<4;i++){ s+=a*vno(p); p*=2.0
 `;
 function myoMat(id) {
   const m = MOBILE ? new THREE.MeshStandardMaterial({ color: 0xffffff, vertexColors: true, roughness: 0.4, metalness: 0, side: THREE.DoubleSide })
-    : new THREE.MeshPhysicalMaterial({ color: 0xffffff, vertexColors: true, roughness: 0.46, metalness: 0, clearcoat: 0.55, clearcoatRoughness: 0.32, side: THREE.DoubleSide });
+    : new THREE.MeshPhysicalMaterial({ color: 0xffffff, vertexColors: true, roughness: 0.58, metalness: 0, clearcoat: 0.22, clearcoatRoughness: 0.5, side: THREE.DoubleSide });
   m.extensions = { derivatives: true }; m.envMapIntensity = 0.45;
   m.userData = { baseOpacity: 1, baseEm: new THREE.Color(0), glow: null, clip: true };
   m.clippingPlanes = [clipPlane];
@@ -2363,7 +2369,7 @@ function sinusPoint(id, dirHeart) {
 
 // ---------- Große Gefäße ----------
 heart.updateMatrixWorld(true);
-function vesselMat(id, color) { return matFor(id, color, { rough: 0.42, phys: true }); }
+function vesselMat(id, color) { return matFor(id, color, { rough: 0.55, phys: true }); }
 const mAo = vesselMat('aorta_asc', C.aorta); const mArc = vesselMat('arcus', C.aorta); const mDes = vesselMat('aorta_desc', C.aorta);
 const akW = H(VD.ak.c), akN = H(VD.ak.c.clone().add(VD.ak.n.clone().multiplyScalar(1.3)));
 const aortaCurve = curveOf([akW, akN, V3(-1.35, 4.4, 0.5), V3(-1.05, 6.4, 0.25), V3(0.2, 7.6, -0.6), V3(1.6, 7.4, -1.9), V3(2.3, 5.9, -2.9), V3(2.25, 3.5, -3.45), V3(1.95, -1.0, -3.65), V3(1.8, -4.2, -3.65)]);
@@ -2401,11 +2407,11 @@ const laPt = lpa.userData.curve.getPointAt(0.25).add(V3(0, 0.6, 0));
 const arcUnder = aortaCurve.getPointAt(uEnd - 0.01).add(V3(0, -1.1, 0.25));
 tube('lig_art', null, [laPt, laPt.clone().lerp(arcUnder, 0.5).add(V3(0.15, 0, 0)), arcUnder], 0.16, 0.16, vesselMat('lig_art', C.lig), world, 16, 10);
 const svcB = H(V3(-1.9, 3.3, -0.55));
-const svc = tube('vcs', null, [svcB, svcB.clone().add(V3(0.15, 2.2, -0.1)), V3(svcB.x + 0.2, 8.6, svcB.z - 0.2)], 0.98, 0.95, vesselMat('vcs', C.vc), world, 30, 26);
-capAt(svc.userData.curve, 1, 0.95, mats.vcs, world, 'vcs');
+const svc = tube('vcs', null, [svcB, svcB.clone().add(V3(0.1, 1.8, -0.15)), V3(svcB.x + 0.15, 6.9, svcB.z - 0.35)], 0.98, 0.92, vesselMat('vcs', C.vc), world, 30, 26);
+capAt(svc.userData.curve, 1, 0.92, mats.vcs, world, 'vcs');
 const ivcB = H(V3(-2.55, 0.7, -1.0));
-const ivc = tube('vci', null, [ivcB, ivcB.clone().add(V3(0.2, -1.6, -0.3)), V3(ivcB.x + 0.3, -4.6, ivcB.z - 0.5)], 1.1, 1.08, vesselMat('vci', C.vc), world, 30, 26);
-capAt(ivc.userData.curve, 1, 1.08, mats.vci, world, 'vci');
+const ivc = tube('vci', null, [ivcB, ivcB.clone().add(V3(0.15, -1.2, -0.3)), V3(ivcB.x + 0.25, ivcB.y - 2.5, ivcB.z - 0.55)], 1.1, 1.12, vesselMat('vci', C.vc), world, 30, 26);
+capAt(ivc.userData.curve, 1, 1.12, mats.vci, world, 'vci');
 const mPV = vesselMat('vpulm', C.pv);
 const laW = H(V3(...D.la.c));
 [['Rechte obere Lungenvene', V3(-1.3, 0.6, -0.7), V3(-1.5, 0.3, -0.3), V3(-2.7, 0.6, -0.5)],
@@ -2471,8 +2477,8 @@ cor('vcp', null, [], [V3(-3.6, -0.3, 0.6), V3(-3.75, -0.25, -0.4), V3(-3.2, -0.1
     if (vi.epi) {
       tmp.copy(['ra', 'la'].includes(vi.lab) ? COL.epiA : ['rau', 'lau'].includes(vi.lab) ? COL.au : COL.epiV);
       const dm = nearCor(p);
-      const avg = Math.abs(W[v] - 0.5) < 0.35 ? 1 - Math.abs(W[v] - 0.5) / 0.35 : 0; // Sulcus coronarius
-      const fat = clamp(Math.max(smooth(0.55, 0.0, dm) * 0.85, avg * 0.75), 0, 1);
+      const avg = Math.abs(W[v] - 0.5) < 0.26 ? 1 - Math.abs(W[v] - 0.5) / 0.26 : 0; // Sulcus coronarius
+      const fat = clamp(Math.max(smooth(0.3, 0.0, dm) * 0.6, avg * 0.5), 0, 1);
       tmp.lerp(COL.fat, fat);
     } else {
       tmp.copy(vi.lab === 'ivs' ? COL.sept : (['ra', 'la', 'ias'].includes(vi.lab) ? COL.endoA : COL.endo));
@@ -2544,10 +2550,13 @@ trabeculae('lv', lvc, 34, 0.35, 0.11); trabeculae('rv', rvc, 30, 0.3, 0.13);
 
 // ---------- Erregungsleitung ----------
 const condMat = (id) => matFor(id, C.cond, { rough: 0.35, em: 0x6a4a08, glow: 0xffd36b });
-const saW = svcB.clone().add(V3(-0.75, -0.55, 0.65));
-const saP = marchOut(heart.worldToLocal(saW.clone()).add(V3(-1.5, 0.5, 1.5)), V3(...D.ra.c), -0.03);
-const sa = new THREE.Mesh(new THREE.SphereGeometry(1, 24, 16), condMat('sa')); sa.scale.set(0.24, 0.62, 0.24); sa.position.copy(saP);
-sa.quaternion.setFromUnitVectors(V3(0, 1, 0), V3(0.25, 1, 0.1).normalize()); atr.add(sa); reg(sa, 'sa');
+const saW = svcB.clone().add(V3(-0.95, 0.15, -0.1));
+const saP = marchOut(heart.worldToLocal(saW.clone()).add(V3(-1.6, 1.2, 0.4)), V3(...D.ra.c), -0.03);
+// Sinusknoten: subepikardiale Spindel im Sulcus terminalis, tangential zur RA-Wand, craniocaudal ausgerichtet
+const saN = saP.clone().sub(V3(...D.ra.c)).normalize();
+const saAx = V3(0.25, -1, 0.15).addScaledVector(saN, -V3(0.25, -1, 0.15).dot(saN)).normalize();
+const sa = new THREE.Mesh(new THREE.SphereGeometry(1, 24, 16), condMat('sa')); sa.scale.set(0.2, 0.6, 0.2); sa.position.copy(saP).addScaledVector(saN, -0.09);
+sa.quaternion.setFromUnitVectors(V3(0, 1, 0), saAx); atr.add(sa); reg(sa, 'sa');
 const qInv = heart.quaternion.clone().invert();
 const onTop = (d, wdir) => { const c = V3(...d.c); const u = V3(...wdir).normalize().applyQuaternion(qInv); return marchOut(c.clone().addScaledVector(u, 5), c, -0.04); };
 const bachPts = [saP, onTop(D.ra, [0.1, 1, 0.55]), onTop(D.ra, [0.75, 0.9, 0.2]), onTop(D.la, [-0.5, 1, 0.45]), onTop(D.la, [0.2, 1, 0.5]), onTop(D.la, [0.8, 0.6, 0.45])];
@@ -2656,6 +2665,7 @@ function updateLooks(time) {
     if (flash.id === id && flash.t > 0) _c.lerp(flash.ok ? OKC : BADC, Math.min(1, flash.t));
     m.emissive.copy(_c);
   });
+  { const ref = mats.aorta_asc; const op = ref.opacity; const tr = op < 0.999; if (lumenMat.transparent !== tr) { lumenMat.transparent = tr; lumenMat.needsUpdate = true; } lumenMat.opacity = op; lumenMat.depthWrite = ref.depthWrite; }
 }
 
 // ---------- Herzzyklus ----------
@@ -3809,7 +3819,7 @@ function drawDoppler(cv) {
 function dopSpec() {
   const k = vpState.kind, g = vpState.grade || 0;
   const sysEnv = (t, a, b, pk) => (t < a || t > b ? 0 : Math.pow(Math.sin(Math.PI * Math.pow((t - a) / (b - a), pk)), 1.1));
-  if (k === 'as' || k === 'bav') { const vm = [0, 3.2, 3.8, 4.8][g]; const mg = Math.round(4 * vm * vm * 0.6); return { title: 'CW-Doppler über der Aortenklappe (apikaler 5-Kammerblick)', cw: true, base: 0.18, scale: 6, f: (t) => -vm * sysEnv(t, 90, 400, g >= 3 ? 1.0 : 0.8), vals: [`Vmax ${vm.toFixed(1)} m/s`, `mittl. Gradient ≈ ${mg} mmHg`, `AVA ≈ ${[0, 1.6, 1.2, 0.7][g]} cm² (Kontinuitätsgleichung)`, g >= 3 ? 'Spätes Maximum: schwere AS' : 'Frühes Maximum'] }; }
+  if (k === 'as' || k === 'bav') { const vm = [0, 2.8, 3.5, 4.8][g]; const mg = Math.round(4 * vm * vm * 0.6); return { title: 'CW-Doppler über der Aortenklappe (apikaler 5-Kammerblick)', cw: true, base: 0.18, scale: 6, f: (t) => -vm * sysEnv(t, 90, 400, g >= 3 ? 1.0 : 0.8), vals: [`Vmax ${vm.toFixed(1)} m/s`, `mittl. Gradient ≈ ${mg} mmHg`, `AVA ≈ ${[0, 1.6, 1.2, 0.7][g]} cm² (Kontinuitätsgleichung)`, g >= 3 ? 'Spätes Maximum: schwere AS' : 'Frühes Maximum'] }; }
   if (k === 'ar') { const pht = [0, 600, 400, 180][g]; return { title: 'CW-Doppler Aorteninsuffizienz (apikal)', cw: true, base: 0.55, scale: 6, f: (t) => (t < 420 ? -1.4 * sysEnv(t, 90, 400, 0.8) : 4.6 * Math.exp(-(t - 420) / pht * 0.9)), vals: [`Druckhalbwertszeit ${pht} ms`, g >= 3 ? 'PHT < 200 ms: schwere AI' : 'PHT > 500 ms: leichte AI', `Vena contracta ${[0, 2, 4, 7][g]} mm`, 'holodiastolischer Rückfluss Aorta desc.'] }; }
   if (k === 'ms') { const pht = [0, 110, 170, 240][g]; const mva = (220 / pht).toFixed(1); return { title: 'CW-Doppler über der Mitralklappe (apikaler 4-Kammerblick)', cw: true, base: 0.75, scale: 3.2, f: (t) => (t > 430 && t < 960 ? (2.3 - (t - 430) / pht * 0.9 > 0.7 ? 2.3 - (t - 430) / pht * 0.9 : 0.7) + (t > 860 ? 0.6 * Math.sin(Math.PI * (t - 860) / 100) : 0) : 0), vals: [`PHT ${pht} ms → MÖF ≈ ${mva} cm² (220/PHT)`, `mittl. Gradient ${[0, 4, 8, 13][g]} mmHg`, 'Bei VHF: Mittel aus 5 Zyklen'] }; }
   if (k.startsWith('mr')) { return { title: 'CW-Doppler Mitralinsuffizienz (apikal)', cw: true, base: 0.18, scale: 6.5, f: (t) => (t > 40 && t < 420 ? -5.2 * Math.pow(Math.sin(Math.PI * (t - 40) / 380), 0.35) : t > 450 && t < 650 ? 1.1 * sysEnv(t, 450, 650, 1) : 0), vals: [`Vmax ≈ 5,2 m/s (LV-LA-Gradient)`, `EROA ${['', '0,10', '0,25', '0,45'][g]} cm² (PISA)`, `Regurgitationsvolumen ${['', '20', '45', '70'][g]} ml`, `Vena contracta ${['', '2', '5', '8'][g]} mm`] }; }
@@ -3986,7 +3996,7 @@ const VP_CARD = {
   ms: { t: 'Schwere MS', v: [['MÖF', '≤ 1,5 cm²'], ['Δp mittel', 'frequenzabhängig, oft > 10 mmHg'], ['PHT', '> 150 ms'], ['sPAP', 'oft > 50 mmHg']], i: 'Perkutane Kommissurotomie (PMC) bei günstiger Morphologie (Wilkins-Score), sonst Klappenchirurgie. Antikoagulation bei VHF unabhängig vom CHA₂DS₂-VA-Score.' },
   mr1: { t: 'Carpentier Typ I', v: [['Mechanismus', 'normale Segelbeweglichkeit, Anulusdilatation'], ['Ursachen', 'VHF (atriale MI), LV-Dilatation'], ['Jet', 'zentral'], ['Schwer', 'EROA ≥ 0,40 cm², RVol ≥ 60 ml']], i: 'Rhythmuskontrolle und Behandlung der Grundursache; bei schwerer MI Anuloplastie oder TEER.' },
   mr2: { t: 'Carpentier Typ II (primär)', v: [['Mechanismus', 'exzessive Beweglichkeit: Prolaps oder Flail (Sehnenfadenabriss)'], ['Jet', 'exzentrisch, vom betroffenen Segel weg'], ['Schwer', 'VC ≥ 7 mm, EROA ≥ 0,40 cm², RVol ≥ 60 ml'], ['Rekonstruktion', '> 95 % bei P2-Prolaps']], i: 'Rekonstruktion bei Symptomen oder asymptomatisch bei LVESD ≥ 40 mm, LVEF ≤ 60 %, neuem VHF oder sPAP > 50 mmHg. TEER bei hohem OP-Risiko.' },
-  mr3: { t: 'Carpentier Typ IIIb (sekundär)', v: [['Mechanismus', 'systolische Restriktion durch LV-Dilatation und Papillarmuskelverlagerung'], ['Tenting', 'Tenting-Höhe > 10 mm'], ['Schwer', 'EROA ≥ 0,40 cm² (≥ 0,20 bei elliptischer Öffnung)'], ['Begleitend', 'HFrEF']], i: 'Zuerst leitliniengerechte Herzinsuffizienztherapie inkl. CRT; danach TEER nach COAPT-Kriterien.' },
+  mr3: { t: 'Carpentier Typ IIIb (sekundär)', v: [['Mechanismus', 'systolische Restriktion durch LV-Dilatation und Papillarmuskelverlagerung'], ['Tenting', 'Tenting-Höhe > 10 mm'], ['Schwer', 'EROA ≥ 0,40 cm² (≥ 0,30 cm² bei elliptischer Öffnung), RVol ≥ 60 ml (≥ 45 ml bei Low-Flow)'], ['Begleitend', 'HFrEF']], i: 'Zuerst leitliniengerechte Herzinsuffizienztherapie inkl. CRT; danach TEER nach COAPT-Kriterien.' },
   tr: { t: 'Schwere TI', v: [['Vena contracta', '≥ 7 mm'], ['EROA', '≥ 0,40 cm²'], ['Lebervenen', 'systolische Flussumkehr'], ['Anulus', '≥ 40 mm bzw. ≥ 21 mm/m²']], i: 'Bei Linksherz-OP Mitbehandlung ab Anulusdilatation; isolierte schwere TI symptomatisch: Chirurgie oder Transkatheterverfahren (T-TEER, TTVR).' },
   ps: { t: 'Pulmonalstenose', v: [['Schwer', 'Vmax > 4 m/s, Spitzengradient > 64 mmHg'], ['Morphologie', 'dombildende Klappe, poststenotische Dilatation'], ['Assoziation', 'Noonan-Syndrom, Fallot']], i: 'Ballonvalvuloplastie bei schwerer valvulärer Stenose mit typischer Morphologie.' },
 };
@@ -4224,7 +4234,7 @@ const IMG_VIEWS = {
     ['me2c', 'ME 2-Kammerblick (≈ 90°)', () => mkProbeView(MKc.clone().lerp(APEX, 0.35), planeN(ESO, APEX, LAAc), ESO, LAAc.clone()), ['LA-Vorhofohr (Thrombus-Ausschluss vor Kardioversion)', 'Anteriore und inferiore Wand', 'Mitralsegel P3–A1']],
     ['melax', 'ME lange Achse (≈ 120°)', () => mkProbeView(MKc.clone().lerp(AKc, 0.5), planeN(ESO, AKc, APEX), ESO, AKc.clone()), ['LVOT, Aortenklappe, Aortenwurzel (Anulus, Sinus, STJ)', 'Mitralsegel A2/P2', 'TAVI- und Mitral-TEER-Planung']],
     ['meavsax', 'ME Aortenklappe kurze Achse (≈ 40°)', () => mkProbeView(AKc.clone().addScaledVector(VD.ak.n, 0.1), perp(VD.ak.n.clone(), V3(0, 0, 0).add(ESO.clone().sub(AKc).normalize())), ESO, PKc.clone()), ['Aortenklappenmorphologie (bikuspid?), Planimetrie', 'Interatriales Septum, Fossa ovalis', 'RVOT und Pulmonalklappe']],
-    ['bicaval', 'ME bikaval (≈ 100°)', () => mkProbeView(RAc.clone().lerp(fossaC, 0.4), planeN(ESO, svcL, ivcL), ESO, svcL.clone()), ['V. cava superior (rechts) und inferior (links)', 'Fossa ovalis, PFO-Diagnostik mit Kontrast und Valsalva', 'Transseptale Punktion (inferoposterior)', 'Sinus-venosus-Defekt']],
+    ['bicaval', 'ME bikaval (≈ 100°)', () => mkProbeView(RAc.clone().lerp(fossaC, 0.4), planeN(ESO, svcL, ivcL), ESO, svcL.clone()), ['V. cava superior (rechts) und inferior (links)', 'Fossa ovalis, PFO-Diagnostik mit Kontrast und Valsalva', 'Transseptale Punktion (TEER: posterior-superior · LAA: inferoposterior)', 'Sinus-venosus-Defekt']],
     ['tgsax', 'Transgastrisch kurze Achse (0°)', () => saxView(0.45, loc(H(lvc).add(V3(0.2, -3.5, -3.2))), lvc.clone().addScaledVector(LAT, 3)), ['Mittventrikuläre kurze Achse aus dem Magen', 'Monitoring von Füllung und regionaler Wandbewegung', 'Inferiore Wand oben (nahe der Sonde)']],
   ],
   ct: [
@@ -4445,7 +4455,7 @@ function buildMitral() {
   const path = [loc(ivcB.clone().add(V3(0.3, -4.0, -0.5))), loc(ivcB.clone()), RAc.clone().lerp(punct, 0.4).add(V3(0, -0.5, 0)), punct, punct.clone().lerp(LAc, 0.5).add(V3(0, 0.5, 0)), MKc.clone().addScaledVector(VD.mk.n, -1.0), MKc.clone().addScaledVector(VD.mk.n, -0.15)];
   g.add(tubeOf(path, 0.11, M_('#9aa6ad', { r: 0.3, m: 0.3 }), 120));
   g.add(dot3(punct, 0.16, M_('#ffcf5a', { em: 0x5a3a00 })));
-  addLabel('Transseptale Punktion: inferoposterior, 4–5 cm über dem Anulus', () => Hl(punct), 'warn', 'mitral');
+  addLabel('Transseptale Punktion: posterior-superior, 4–5 cm über dem Mitralanulus', () => Hl(punct), 'warn', 'mitral');
   // Clip auf A2/P2
   const clip = new THREE.Group(); const cm = M_('#c9d0d6', { r: 0.25, m: 0.6 });
   const arm = new THREE.BoxGeometry(0.16, 0.7, 0.42); [-1, 1].forEach((s) => { const a = new THREE.Mesh(arm, cm); a.position.set(s * 0.14, -0.2, 0); a.rotation.z = s * 0.25; clip.add(a); });
@@ -4623,7 +4633,7 @@ const CASES = [
   { id: 'c9', q: 'TAVI-Planung: Welche Messung bestimmt beim Fallen der Klappentaschen am ehesten das Risiko eines Koronarverschlusses?', type: 'mc', opts: ['Höhe der Koronarostien über dem Anulus', 'LVOT-Durchmesser', 'Länge der Aorta ascendens', 'Wanddicke des Septums'], ok: 0, setup: () => { $('#ovTavi').checked = true; $('#ovTavi').onchange({ target: $('#ovTavi') }); }, ex: 'Ostienhöhe < 10–12 mm und enge Sinus (< 30 mm) erhöhen das Risiko einer Koronarobstruktion.' },
   { id: 'c10', q: 'Welche Struktur verläuft im Sulcus atrioventricularis posterior und mündet in den rechten Vorhof? Sie ist der Zugang für die LV-Elektrode bei CRT.', type: 'struct', ok: ['sinus_cor'], setup: () => { PRESETS[1][1](); applyVisibility(); setView('post'); }, ex: 'Sinus coronarius; Ostium am Boden des RA, Basis des Koch-Dreiecks.' },
   { id: 'c11', q: 'Schwere AS: Vmax 4,6 m/s, mittlerer Gradient 52 mmHg, AVA 0,7 cm², symptomatisch, 81 Jahre. Was ist die Standardtherapie nach ESC 2021?', type: 'mc', opts: ['TAVI (Heart-Team-Entscheidung)', 'Ballonvalvuloplastie als Dauertherapie', 'Abwarten bis LVEF < 50 %', 'Mitral-TEER'], ok: 0, setup: () => { $('#vpSel').value = 'as'; setVP('as', 3); openDock('dop'); }, ex: 'Ab ca. 75 Jahren bzw. bei hohem Risiko und geeigneter Anatomie ist die transfemorale TAVI bevorzugt.' },
-  { id: 'c12', q: 'Bei der transseptalen Punktion soll die Nadel in einen bestimmten Bereich. Klicken Sie ihn an.', type: 'struct', ok: ['fossa'], setup: () => { setOpacity(0.3); setView('lat_r'); }, ex: 'Fossa ovalis, für Mitral-TEER inferoposterior und 4–5 cm über der Mitralebene.' },
+  { id: 'c12', q: 'Bei der transseptalen Punktion soll die Nadel in einen bestimmten Bereich. Klicken Sie ihn an.', type: 'struct', ok: ['fossa'], setup: () => { setOpacity(0.3); setView('lat_r'); }, ex: 'Fossa ovalis; für Mitral-TEER posterior-superior punktieren (Höhe 4–5 cm über der Mitralebene), für den LAA-Verschluss inferoposterior.' },
   { id: 'c13', q: 'Welche Struktur überquert den RV vom Septum zur Basis des vorderen Papillarmuskels und führt den rechten Tawara-Schenkel?', type: 'struct', ok: ['tsm'], setup: () => { setOpacity(0.25); setView('ant'); }, ex: 'Trabecula septomarginalis (Moderatorband): Leitstruktur des RV im Echo, Ursprungsort von Purkinje-VT.' },
   { id: 'c14', q: 'Kurze PQ-Zeit, Delta-Welle, positive Delta-Welle in V1. Wo liegt die akzessorische Bahn am wahrscheinlichsten?', type: 'mc', opts: ['Linkslateral am Mitralanulus', 'Rechts anteroseptal', 'Im RVOT', 'Im His-Bündel'], ok: 0, setup: () => { ecgState.rhythm = 'wpw'; $('#rhythm').value = 'wpw'; resetSched(); ecgExplain(); openDock('ecg12'); }, ex: 'Positive Delta-Welle in V1 (Typ A) spricht für eine linksseitige Bahn; Ablation über transseptalen oder retrograd-aortalen Zugang.' },
   { id: 'c15', q: 'Vorhofflimmern, Antikoagulation kontraindiziert. Klicken Sie die Struktur an, die beim interventionellen Verschluss verschlossen wird.', type: 'struct', ok: ['lau'], setup: () => { setView('lat_l'); }, ex: 'Linkes Herzohr: Ursprung von > 90 % der Thromben bei nicht-valvulärem VHF.' },
@@ -4685,7 +4695,7 @@ const TOURS = [
     ['Ende', 'Zurück zur normalen Darstellung.', () => { $('#actMap').value = ''; setActMode(''); setPlaying(true); }],
   ] },
   { n: 'Koronaranatomie für die PCI', s: [
-    ['Hauptstamm', 'Aus dem linken Sinus, teilt sich in RIVA und RCX (selten Trifurkation mit Ramus intermedius).', () => { PRESETS[1][1](); applyVisibility(); $('#segNums').checked = true; setLabelsOn('cornum', true); select('lca', null, true); }],
+    ['Hauptstamm', 'Aus dem linken Sinus, teilt sich in RIVA und RCX (in ca. 20–30 % Trifurkation mit Ramus intermedius).', () => { PRESETS[1][1](); applyVisibility(); $('#segNums').checked = true; setLabelsOn('cornum', true); select('lca', null, true); }],
     ['RIVA mit Diagonalästen', 'Im Sulcus interventricularis anterior zur Spitze; Septaläste und Diagonaläste (Segmente 6–10).', () => { select('lad'); flyToDir(angioDir(-30, 30), 38, 'RAO 30° kranial 30°'); }],
     ['RCX mit Marginalästen', 'Im linken AV-Sulcus nach posterior (Segmente 11–14).', () => { select('rcx'); flyToDir(angioDir(-30, -20), 38, 'RAO 30° kaudal 20°'); }],
     ['RCA', 'Aus dem rechten Sinus im rechten AV-Sulcus; bei Rechtsversorgung Abgabe der RIVP (Segmente 1–4).', () => { select('rca'); flyToDir(angioDir(30, 0), 38, 'LAO 30°'); }],
