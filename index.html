@@ -4,14 +4,113 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0a0e11">
+<meta name="description" content="Interaktiver 3D-Atlas der Herzanatomie für die Kardiologie: Strukturen, Koronarien, Bildgebungsebenen, EKG, Hämodynamik, Pathologie und Interventionen.">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Herz-Atlas">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Herz-Atlas 3D</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
-*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}:root{--bg:#0a0e11;--s1:#10161a;--s2:#151d22;--s3:#1b252b;--line:#243037;--line2:#31404a;--fg:#e9edeb;--muted:#8e9c9f;--dim:#64737a;--accent:#e8b46a;--accent-ink:#1d1407;--teal:#6fd8b6;--blue:#8fb4ff;--danger:#ef6b5b;--ok:#6fd49a;--violet:#b49cff;--f-display:"Newsreader","Iowan Old Style",Georgia,serif;--f-body:"IBM Plex Sans",-apple-system,"Segoe UI",system-ui,sans-serif;--f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--rail:76px;--side:344px;--infoW:384px;color-scheme:dark}[hidden]{display:none!important}body,html{height:100%}body{background:radial-gradient(1200px 800px at 58% 42%,#18232a 0,var(--bg) 70%);color:var(--fg);font-family:var(--f-body);font-size:14px;overflow:hidden;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}button,input,select{font:inherit;color:inherit}button{cursor:pointer}:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-thumb{background:#2a363d;border-radius:8px}::-webkit-scrollbar-track{background:transparent}.glass{background:rgba(14,20,24,.86);border:1px solid var(--line);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);box-shadow:0 10px 40px -12px rgba(0,0,0,.6)}.label{margin-bottom:.5rem;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}.hint{margin:0;line-height:1.625;color:var(--muted)}.chip,.hint{font-size:12.5px}.chip{border-radius:.5rem;padding:.5rem .625rem;text-align:center;line-height:1.25;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s;background:var(--s2);border:1px solid var(--line)}.chip:hover{border-color:var(--line2);background:var(--s3)}.chip[aria-pressed=true]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}.chip.sm{padding:.375rem .5rem;font-size:12px}.btn{width:100%;border-radius:.5rem;padding:.625rem .75rem;font-size:13.5px;font-weight:600;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s;background:var(--accent);color:var(--accent-ink);border:0}.btn:hover{filter:brightness(1.06)}.btn.ghost{background:var(--s2);color:var(--fg);border:1px solid var(--line);font-weight:500}.btn.ghost:hover{border-color:var(--line2)}.btn.ghost[aria-pressed=true]{border-color:var(--accent);color:var(--accent)}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid2,.grid3{display:grid;gap:.375rem}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.sel{width:100%;padding:.5rem .625rem;font-size:13px;background:var(--s2)}.seg,.sel{border-radius:.5rem;border:1px solid var(--line)}.seg{display:flex;gap:.125rem;padding:.125rem;background:var(--s1)}.seg button{flex:1 1 0%;border-radius:.375rem;padding:.375rem .5rem;font-size:12.5px;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s;color:var(--muted);background:transparent;border:0}.seg button[aria-pressed=true]{background:var(--s3);color:var(--fg);box-shadow:inset 0 0 0 1px var(--line2);font-weight:600}.switch{-moz-appearance:none;appearance:none;-webkit-appearance:none;width:34px;height:20px;border-radius:10px;background:#34423f;position:relative;flex:none;margin:0;cursor:pointer;transition:background .15s}.switch:after{content:"";position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:#c9d1cf;transition:transform .15s}.switch:checked{background:var(--accent)}.switch:checked:after{transform:translateX(14px);background:var(--accent-ink)}.trow{display:flex;align-items:center;gap:.75rem;padding-top:.375rem;padding-bottom:.375rem}.trow>label,.trow>span.t{flex:1 1 0%;font-size:13px;line-height:1.375}.val{text-align:right;font-size:12px;font-family:var(--f-mono);color:var(--muted);min-width:44px}.card{border-radius:.75rem;padding:.75rem;background:var(--s1);border:1px solid var(--line)}.sect{display:flex;flex-direction:column;gap:.625rem}.sect+.sect{margin-top:.25rem;padding-top:1rem;border-top:1px solid var(--line)}.kv{display:grid;-moz-column-gap:.75rem;column-gap:.75rem;row-gap:.25rem;font-size:12.5px;grid-template-columns:auto 1fr}.kv b{font-family:var(--f-mono);font-weight:500;color:var(--fg)}.kv span{color:var(--muted)}.pill{border-radius:9999px;padding:.125rem .5rem;font-weight:600}.pill,.tag{display:inline-flex;align-items:center;font-size:11px}.tag{gap:.375rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.mono{font-family:var(--f-mono)}.disp{font-family:var(--f-display)}.rail-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem;border-radius:.75rem;font-size:10.5px;line-height:1;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s;color:var(--muted);width:60px;height:56px;background:transparent;border:0}.rail-btn svg{width:21px;height:21px}.rail-btn:hover{color:var(--fg);background:var(--s2)}.rail-btn[aria-current=true]{color:var(--accent);background:hsla(35,73%,66%,.1)}.lbl3d{position:absolute;left:0;top:0;pointer-events:none;white-space:nowrap;font-size:11.5px;padding:2px 7px;border-radius:999px;background:rgba(8,12,14,.82);border:1px solid var(--line2);color:var(--fg);transform:translate(-50%,-50%);will-change:transform}.lbl3d.num{font-family:var(--f-mono);font-weight:600;padding:1px 6px;color:#10161a;background:var(--accent);border-color:transparent}.lbl3d.pin{pointer-events:auto;cursor:pointer;background:#2b2140;border-color:var(--violet)}.lbl3d.meas{font-family:var(--f-mono);background:#10261f;border-color:var(--teal);color:var(--teal)}.lbl3d.warn{background:#3a1714;border-color:var(--danger);color:#ffc2b8}.lbl3d.info{background:rgba(16,30,46,.9);border-color:#3c5a7a;color:#cfe2ff}.lbl3d.\!info{background:rgba(16,30,46,.9)!important;border-color:#3c5a7a!important;color:#cfe2ff!important}.visible{visibility:visible}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.left-1\/2{left:50%}.left-2{left:.5rem}.right-2{right:.5rem}.top-0{top:0}.top-2{top:.5rem}.z-10{z-index:10}.z-30{z-index:30}.z-\[60\]{z-index:60}.m-0{margin:0}.mx-auto{margin-left:auto;margin-right:auto}.my-1\.5{margin-top:.375rem;margin-bottom:.375rem}.-mt-1{margin-top:-.25rem}.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mr-1\.5{margin-right:.375rem}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-1\.5{margin-top:.375rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-1{height:.25rem}.h-11{height:2.75rem}.h-2{height:.5rem}.h-2\.5{height:.625rem}.max-h-\[86vh\]{max-height:86vh}.min-h-\[18px\]{min-height:18px}.w-11{width:2.75rem}.w-2{width:.5rem}.w-2\.5{width:.625rem}.w-full{width:100%}.min-w-0{min-width:0}.max-w-\[260px\]{max-width:260px}.max-w-\[280px\]{max-width:280px}.max-w-\[290px\]{max-width:290px}.max-w-\[640px\]{max-width:640px}.flex-1{flex:1 1 0%}.-translate-x-1\/2{--tw-translate-x:-50%}.-translate-x-1\/2,.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}.resize{resize:both}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.place-items-center{place-items:center}.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-x-3{-moz-column-gap:.75rem;column-gap:.75rem}.gap-y-1{row-gap:.25rem}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-sm{border-radius:.125rem}.rounded-xl{border-radius:.75rem}.p-2{padding:.5rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-2{padding-bottom:.5rem}.pb-3{padding-bottom:.75rem}.pb-5{padding-bottom:1.25rem}.pl-4{padding-left:1rem}.pt-1{padding-top:.25rem}.pt-4{padding-top:1rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.text-\[10\.5px\]{font-size:10.5px}.text-\[11px\]{font-size:11px}.text-\[12\.5px\]{font-size:12.5px}.text-\[12px\]{font-size:12px}.text-\[13\.5px\]{font-size:13.5px}.text-\[13px\]{font-size:13px}.text-\[14px\]{font-size:14px}.text-\[16px\]{font-size:16px}.text-\[20px\]{font-size:20px}.text-\[22px\]{font-size:22px}.text-\[24px\]{font-size:24px}.text-\[26px\]{font-size:26px}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.accent-\[\#e8b46a\]{accent-color:#e8b46a}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.ring{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.grayscale{--tw-grayscale:grayscale(100%)}.grayscale,.invert{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.invert{--tw-invert:invert(100%)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grp-head{display:flex;align-items:center;gap:9px;padding:7px 2px}.grp-head .dot{width:10px;height:10px;border-radius:50%;flex:none;box-shadow:0 0 0 3px hsla(0,0%,100%,.04)}.grp-head .gname{flex:1;font-weight:600;font-size:13px}.grp-head .count{color:var(--dim);font-family:var(--f-mono);font-size:11px}.items{display:flex;flex-direction:column;margin-left:4px;padding-left:12px;border-left:1px solid var(--line);margin-bottom:4px}.item{display:flex;align-items:center;gap:6px;border-radius:6px}.item:hover{background:var(--s2)}.item button.nm{flex:1;text-align:left;background:none;border:0;padding:5px 6px;color:var(--fg);font-size:13px;line-height:1.3}.item button.nm small{display:block;color:var(--dim);font-size:11.5px;font-family:var(--f-display);font-style:italic}.item.sel{background:hsla(35,73%,66%,.1)}.item.sel button.nm{color:var(--accent);font-weight:600}.item.off button.nm{color:var(--dim);text-decoration:line-through}.eye{background:none;border:0;width:28px;height:28px;padding:0;color:var(--dim);display:grid;place-items:center;border-radius:6px;flex:none}.eye:hover{background:var(--s3);color:var(--fg)}#info h2{margin:2px 0 0;font-weight:600;font-size:28px;line-height:1.08;text-wrap:balance;letter-spacing:-.005em}#info .lat,#info h2{font-family:var(--f-display)}#info .lat{font-style:italic;font-size:16.5px;color:#c4cbc7;margin:3px 0 0}#info .def{margin:0;font-size:14.5px;line-height:1.6;color:#dfe5e2}#info .sec h3{margin:0 0 7px;font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:600;display:flex;align-items:center;gap:7px}#info .sec h3:before{content:"";width:3px;height:11px;border-radius:2px;background:var(--line2)}#info .sec.klinik h3:before{background:var(--danger)}#info .sec.norm h3:before{background:var(--teal)}#info .sec.xtra h3:before{background:var(--blue)}#info .sec ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;line-height:1.55;font-size:13.5px}#info .sec.norm ul{list-style:none;padding:0;gap:4px}#info .sec.norm li{font-family:var(--f-mono);font-size:12.3px;background:var(--s2);border:1px solid var(--line);border-radius:7px;padding:6px 9px}#info .sec.klinik li::marker{color:var(--danger)}.rel{display:flex;flex-wrap:wrap;gap:6px}.rel button{background:var(--s2);border:1px solid var(--line);border-radius:999px;padding:5px 11px;font-size:12px}.rel button:hover{border-color:var(--accent);color:var(--accent)}#app{position:fixed;inset:0}#view{position:absolute;inset:0;display:block;width:100%;height:100%;touch-action:none;cursor:grab}#view.hovering{cursor:pointer}#view.tool{cursor:crosshair}#rail{z-index:12;left:10px;width:var(--rail);align-items:center;padding:10px 0;gap:4px}#rail,#side{position:absolute;top:calc(10px + env(safe-area-inset-top, 0px));bottom:10px;border-radius:18px;display:flex;flex-direction:column}#side{z-index:11;left:calc(var(--rail) + 18px);width:var(--side);overflow:hidden;transition:transform .25s ease,opacity .2s}body.side-closed #side{transform:translateX(calc(-100% - 120px));opacity:0;pointer-events:none}.pane{flex:1;padding:14px 16px 22px;display:flex;flex-direction:column;gap:4px;min-height:0}#info,.pane{overflow-y:auto;overscroll-behavior:contain}#info{position:absolute;z-index:11;top:calc(10px + env(safe-area-inset-top, 0px));right:max(10px,env(safe-area-inset-right,0px));width:var(--infoW);max-height:calc(100% - 20px - env(safe-area-inset-top, 0px));border-radius:18px}#info.isempty{width:320px}#dock{position:absolute;z-index:10;left:calc(var(--rail) + var(--side) + 30px);right:calc(var(--infoW) + 22px);bottom:10px;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;max-height:52vh}body.side-closed #dock{left:calc(var(--rail) + 22px)}#dock canvas{display:block;width:100%}#topbar{position:absolute;z-index:9;top:calc(12px + env(safe-area-inset-top, 0px));left:calc(var(--rail) + var(--side) + 30px);display:flex;gap:8px;align-items:center}body.side-closed #topbar{left:calc(var(--rail) + 22px)}.tb{height:36px;min-width:36px;padding:0 10px;border-radius:10px;display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--fg)}.tb svg{width:17px;height:17px}.tb[aria-pressed=true]{color:var(--accent);border-color:hsla(35,73%,66%,.6)}#gizmo{z-index:8;right:calc(var(--infoW) + 26px);bottom:14px;width:84px;height:84px;pointer-events:none}#ecg,#gizmo{position:absolute}#ecg{z-index:9;left:50%;transform:translateX(-50%);top:calc(58px + env(safe-area-inset-top, 0px));width:min(520px,calc(100% - var(--rail) - var(--side) - var(--infoW) - 80px));min-width:280px;border-radius:14px;padding:8px 12px;margin-left:calc((var(--rail) + var(--side) - var(--infoW))/2)}#ecg canvas{width:100%;height:62px;display:block}#labels{inset:0;z-index:7;overflow:hidden}#labels,#tip{position:absolute;pointer-events:none}#tip{background:rgba(8,12,14,.94);border:1px solid var(--line2);border-radius:8px;padding:6px 10px;font-size:13px;z-index:30;white-space:nowrap;transform:translate(14px,14px)}#tip small{display:block;color:var(--muted);font-style:italic;font-size:13px}#loading,#tip small{font-family:var(--f-display)}#loading{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);z-index:50;background:var(--bg);font-size:20px}#toast{position:absolute;z-index:40;left:50%;bottom:28px;transform:translateX(-50%)}#mobnav,.sheet-handle{display:none}@media (max-width:1180px){:root{--side:316px;--infoW:340px}}@media (max-width:920px) and (min-width:768px){#dock{right:12px}#info:not(.isempty)~#dock{display:none}}@media (max-width:767px){:root{--mobnav:calc(64px + env(safe-area-inset-bottom, 0px))}#rail{display:none}#mobnav{display:flex;position:absolute;z-index:20;left:0;right:0;bottom:0;height:var(--mobnav);padding:4px 6px env(safe-area-inset-bottom,0);border-radius:0;border-left:0;border-right:0;border-bottom:0;justify-content:space-around;align-items:center}#mobnav .rail-btn{width:64px;height:54px}#dock,#info,#side{left:0!important;right:0!important;width:auto!important;top:auto!important;bottom:var(--mobnav)!important;border-radius:20px 20px 0 0;max-height:none;transition:transform .28s cubic-bezier(.2,.8,.2,1);border-bottom:0}#side{height:56vh;height:56dvh}body.sheet-tall #side{height:84vh;height:84dvh}#info{height:auto;max-height:62vh;max-height:62dvh}body.sheet-tall #info{max-height:84vh;max-height:84dvh}#dock{max-height:60vh;max-height:60dvh}body:not([data-sheet=side]) #side{opacity:1}body:not([data-sheet=dock]) #dock,body:not([data-sheet=info]) #info,body:not([data-sheet=side]) #side{transform:translateY(calc(100% + 30px));pointer-events:none}body.side-closed #side{opacity:1}.sheet-handle{display:block;width:100%;height:22px;flex:none;background:none;border:0;position:relative}.sheet-handle:after{content:"";position:absolute;left:50%;top:8px;width:40px;height:5px;border-radius:3px;background:#3a4950;transform:translateX(-50%)}#topbar{left:max(10px,env(safe-area-inset-left,0px))!important;right:max(10px,env(safe-area-inset-right,0px));top:calc(8px + env(safe-area-inset-top, 0px));flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}#topbar::-webkit-scrollbar{display:none}.tb .tbt{display:none}#gizmo{right:10px;bottom:calc(var(--mobnav) + 10px);width:64px;height:64px}body[data-sheet=dock] #gizmo,body[data-sheet=info] #gizmo,body[data-sheet=side] #gizmo{display:none}#ecg{left:10px;right:10px;width:auto;min-width:0;transform:none;margin-left:0;top:calc(54px + env(safe-area-inset-top, 0px))}#info.isempty{display:none}.pane{padding:4px 16px 22px}#toast{bottom:calc(var(--mobnav) + 20px)}#caseBar,#quizbar,#tourCard{top:auto!important;bottom:calc(var(--mobnav) + 12px)!important;left:10px!important;right:10px!important;width:auto!important;transform:none!important}}@media (prefers-reduced-motion:reduce){#dock,#info,#side{transition:none!important}}@media (min-width:768px){.md\:hidden{display:none}}
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}:root{--bg:#0a0e11;--s1:#10161a;--s2:#151d22;--s3:#1b252b;--line:#243037;--line2:#31404a;--fg:#e9edeb;--muted:#8e9c9f;--dim:#64737a;--accent:#e8b46a;--accent-ink:#1d1407;--teal:#6fd8b6;--blue:#8fb4ff;--danger:#ef6b5b;--ok:#6fd49a;--violet:#b49cff;--f-display:"Newsreader","Iowan Old Style",Georgia,serif;--f-body:"IBM Plex Sans",-apple-system,"Segoe UI",system-ui,sans-serif;--f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--rail:76px;--side:344px;--infoW:384px;color-scheme:dark}[hidden]{display:none!important}body,html{height:100%}body{background:radial-gradient(1200px 800px at 58% 42%,#18232a 0,var(--bg) 70%);color:var(--fg);font-family:var(--f-body);font-size:14px;overflow:hidden;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}button,input,select{font:inherit;color:inherit}button{cursor:pointer}:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-thumb{background:#2a363d;border-radius:8px}::-webkit-scrollbar-track{background:transparent}.glass{background:rgba(14,20,24,.86);border:1px solid var(--line);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);box-shadow:0 10px 40px -12px rgba(0,0,0,.6)}.label{margin-bottom:.5rem;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}.hint{margin:0;line-height:1.625;color:var(--muted)}.chip,.hint{font-size:12.5px}.chip{border-radius:.5rem;padding:.5rem .625rem;text-align:center;line-height:1.25;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s;background:var(--s2);border:1px solid var(--line)}.chip:hover{border-color:var(--line2);background:var(--s3)}.chip[aria-pressed=true]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}.chip.sm{padding:.375rem .5rem;font-size:12px}.btn{width:100%;border-radius:.5rem;padding:.625rem .75rem;font-size:13.5px;font-weight:600;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s;background:var(--accent);color:var(--accent-ink);border:0}.btn:hover{filter:brightness(1.06)}.btn.ghost{background:var(--s2);color:var(--fg);border:1px solid var(--line);font-weight:500}.btn.ghost:hover{border-color:var(--line2)}.btn.ghost[aria-pressed=true]{border-color:var(--accent);color:var(--accent)}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid2,.grid3{display:grid;gap:.375rem}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.sel{width:100%;padding:.5rem .625rem;font-size:13px;background:var(--s2)}.seg,.sel{border-radius:.5rem;border:1px solid var(--line)}.seg{display:flex;gap:.125rem;padding:.125rem;background:var(--s1)}.seg button{flex:1 1 0%;border-radius:.375rem;padding:.375rem .5rem;font-size:12.5px;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s;color:var(--muted);background:transparent;border:0}.seg button[aria-pressed=true]{background:var(--s3);color:var(--fg);box-shadow:inset 0 0 0 1px var(--line2);font-weight:600}.switch{-moz-appearance:none;appearance:none;-webkit-appearance:none;width:34px;height:20px;border-radius:10px;background:#34423f;position:relative;flex:none;margin:0;cursor:pointer;transition:background .15s}.switch:after{content:"";position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:#c9d1cf;transition:transform .15s}.switch:checked{background:var(--accent)}.switch:checked:after{transform:translateX(14px);background:var(--accent-ink)}.trow{display:flex;align-items:center;gap:.75rem;padding-top:.375rem;padding-bottom:.375rem}.trow>label,.trow>span.t{flex:1 1 0%;font-size:13px;line-height:1.375}.val{text-align:right;font-size:12px;font-family:var(--f-mono);color:var(--muted);min-width:44px}.card{border-radius:.75rem;padding:.75rem;background:var(--s1);border:1px solid var(--line)}.sect{display:flex;flex-direction:column;gap:.625rem}.sect+.sect{margin-top:.25rem;padding-top:1rem;border-top:1px solid var(--line)}.kv{display:grid;-moz-column-gap:.75rem;column-gap:.75rem;row-gap:.25rem;font-size:12.5px;grid-template-columns:auto 1fr}.kv b{font-family:var(--f-mono);font-weight:500;color:var(--fg)}.kv span{color:var(--muted)}.pill{border-radius:9999px;padding:.125rem .5rem;font-weight:600}.pill,.tag{display:inline-flex;align-items:center;font-size:11px}.tag{gap:.375rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.mono{font-family:var(--f-mono)}.disp{font-family:var(--f-display)}.rail-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem;border-radius:.75rem;font-size:10.5px;line-height:1;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s;color:var(--muted);width:60px;height:56px;background:transparent;border:0}.rail-btn svg{width:21px;height:21px}.rail-btn:hover{color:var(--fg);background:var(--s2)}.rail-btn[aria-current=true]{color:var(--accent);background:hsla(35,73%,66%,.1)}.lbl3d{position:absolute;left:0;top:0;pointer-events:none;white-space:nowrap;font-size:11.5px;padding:2px 7px;border-radius:999px;background:rgba(8,12,14,.82);border:1px solid var(--line2);color:var(--fg);transform:translate(-50%,-50%);will-change:transform}.lbl3d.num{font-family:var(--f-mono);font-weight:600;padding:1px 6px;color:#10161a;background:var(--accent);border-color:transparent}.lbl3d.pin{pointer-events:auto;cursor:pointer;background:#2b2140;border-color:var(--violet)}.lbl3d.meas{font-family:var(--f-mono);background:#10261f;border-color:var(--teal);color:var(--teal)}.lbl3d.warn{background:#3a1714;border-color:var(--danger);color:#ffc2b8}.lbl3d.info{background:rgba(16,30,46,.9);border-color:#3c5a7a;color:#cfe2ff}.lbl3d.\!info{background:rgba(16,30,46,.9)!important;border-color:#3c5a7a!important;color:#cfe2ff!important}.visible{visibility:visible}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.left-1\/2{left:50%}.left-2{left:.5rem}.right-2{right:.5rem}.top-0{top:0}.top-2{top:.5rem}.z-10{z-index:10}.z-30{z-index:30}.z-\[60\]{z-index:60}.m-0{margin:0}.mx-auto{margin-left:auto;margin-right:auto}.my-1\.5{margin-top:.375rem;margin-bottom:.375rem}.-mt-1{margin-top:-.25rem}.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mr-1\.5{margin-right:.375rem}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-1\.5{margin-top:.375rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-1{height:.25rem}.h-11{height:2.75rem}.h-2{height:.5rem}.h-2\.5{height:.625rem}.max-h-\[86vh\]{max-height:86vh}.min-h-\[18px\]{min-height:18px}.w-11{width:2.75rem}.w-2{width:.5rem}.w-2\.5{width:.625rem}.w-full{width:100%}.min-w-0{min-width:0}.max-w-\[260px\]{max-width:260px}.max-w-\[280px\]{max-width:280px}.max-w-\[290px\]{max-width:290px}.max-w-\[640px\]{max-width:640px}.flex-1{flex:1 1 0%}.-translate-x-1\/2{--tw-translate-x:-50%}.-translate-x-1\/2,.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}.resize{resize:both}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.place-items-center{place-items:center}.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-x-3{-moz-column-gap:.75rem;column-gap:.75rem}.gap-y-1{row-gap:.25rem}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-sm{border-radius:.125rem}.rounded-xl{border-radius:.75rem}.p-2{padding:.5rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-2{padding-bottom:.5rem}.pb-3{padding-bottom:.75rem}.pb-5{padding-bottom:1.25rem}.pl-4{padding-left:1rem}.pt-1{padding-top:.25rem}.pt-4{padding-top:1rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.text-\[10\.5px\]{font-size:10.5px}.text-\[11px\]{font-size:11px}.text-\[12\.5px\]{font-size:12.5px}.text-\[12px\]{font-size:12px}.text-\[13\.5px\]{font-size:13.5px}.text-\[13px\]{font-size:13px}.text-\[14px\]{font-size:14px}.text-\[16px\]{font-size:16px}.text-\[20px\]{font-size:20px}.text-\[22px\]{font-size:22px}.text-\[24px\]{font-size:24px}.text-\[26px\]{font-size:26px}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.accent-\[\#e8b46a\]{accent-color:#e8b46a}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.ring{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.grayscale{--tw-grayscale:grayscale(100%)}.grayscale,.invert{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.invert{--tw-invert:invert(100%)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grp-head{display:flex;align-items:center;gap:9px;padding:7px 2px}.grp-head .dot{width:10px;height:10px;border-radius:50%;flex:none;box-shadow:0 0 0 3px hsla(0,0%,100%,.04)}.grp-head .gname{flex:1;font-weight:600;font-size:13px}.grp-head .count{color:var(--dim);font-family:var(--f-mono);font-size:11px}.items{display:flex;flex-direction:column;margin-left:4px;padding-left:12px;border-left:1px solid var(--line);margin-bottom:4px}.item{display:flex;align-items:center;gap:6px;border-radius:6px}.item:hover{background:var(--s2)}.item button.nm{flex:1;text-align:left;background:none;border:0;padding:5px 6px;color:var(--fg);font-size:13px;line-height:1.3}.item button.nm small{display:block;color:var(--dim);font-size:11.5px;font-family:var(--f-display);font-style:italic}.item.sel{background:hsla(35,73%,66%,.1)}.item.sel button.nm{color:var(--accent);font-weight:600}.item.off button.nm{color:var(--dim);text-decoration:line-through}.eye{background:none;border:0;width:28px;height:28px;padding:0;color:var(--dim);display:grid;place-items:center;border-radius:6px;flex:none}.eye:hover{background:var(--s3);color:var(--fg)}#info h2{margin:2px 0 0;font-weight:600;font-size:28px;line-height:1.08;text-wrap:balance;letter-spacing:-.005em}#info .lat,#info h2{font-family:var(--f-display)}#info .lat{font-style:italic;font-size:16.5px;color:#c4cbc7;margin:3px 0 0}#info .def{margin:0;font-size:14.5px;line-height:1.6;color:#dfe5e2}#info .sec h3{margin:0 0 7px;font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:600;display:flex;align-items:center;gap:7px}#info .sec h3:before{content:"";width:3px;height:11px;border-radius:2px;background:var(--line2)}#info .sec.klinik h3:before{background:var(--danger)}#info .sec.norm h3:before{background:var(--teal)}#info .sec.xtra h3:before{background:var(--blue)}#info .sec ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;line-height:1.55;font-size:13.5px}#info .sec.norm ul{list-style:none;padding:0;gap:4px}#info .sec.norm li{font-family:var(--f-mono);font-size:12.3px;background:var(--s2);border:1px solid var(--line);border-radius:7px;padding:6px 9px}#info .sec.klinik li::marker{color:var(--danger)}.rel{display:flex;flex-wrap:wrap;gap:6px}.rel button{background:var(--s2);border:1px solid var(--line);border-radius:999px;padding:5px 11px;font-size:12px}.rel button:hover{border-color:var(--accent);color:var(--accent)}#app{position:fixed;inset:0}#view{position:absolute;inset:0;display:block;width:100%;height:100%;touch-action:none;cursor:grab}#view.hovering{cursor:pointer}#view.tool{cursor:crosshair}#rail{z-index:12;left:10px;width:var(--rail);align-items:center;padding:10px 0;gap:4px}#rail,#side{position:absolute;top:calc(10px + env(safe-area-inset-top, 0px));bottom:10px;border-radius:18px;display:flex;flex-direction:column}#side{z-index:11;left:calc(var(--rail) + 18px);width:var(--side);overflow:hidden;transition:transform .25s ease,opacity .2s}body.side-closed #side{transform:translateX(calc(-100% - 120px));opacity:0;pointer-events:none}.pane{flex:1;padding:14px 16px 22px;display:flex;flex-direction:column;gap:4px;min-height:0}#info,.pane{overflow-y:auto;overscroll-behavior:contain}#info{position:absolute;z-index:11;top:calc(10px + env(safe-area-inset-top, 0px));right:max(10px,env(safe-area-inset-right,0px));width:var(--infoW);max-height:calc(100% - 20px - env(safe-area-inset-top, 0px));border-radius:18px}#info.isempty{width:320px}#dock{position:absolute;z-index:10;left:calc(var(--rail) + var(--side) + 30px);right:calc(var(--infoW) + 22px);bottom:10px;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;max-height:52vh}body.side-closed #dock{left:calc(var(--rail) + 22px)}#dock canvas{display:block;width:100%}#topbar{position:absolute;z-index:9;top:calc(12px + env(safe-area-inset-top, 0px));left:calc(var(--rail) + var(--side) + 30px);display:flex;gap:8px;align-items:center}body.side-closed #topbar{left:calc(var(--rail) + 22px)}.tb{height:36px;min-width:36px;padding:0 10px;border-radius:10px;display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--fg)}.tb svg{width:17px;height:17px}.tb[aria-pressed=true]{color:var(--accent);border-color:hsla(35,73%,66%,.6)}#gizmo{z-index:8;right:calc(var(--infoW) + 26px);bottom:14px;width:84px;height:84px;pointer-events:none}#ecg,#gizmo{position:absolute}#ecg{z-index:9;left:50%;transform:translateX(-50%);top:calc(58px + env(safe-area-inset-top, 0px));width:min(520px,calc(100% - var(--rail) - var(--side) - var(--infoW) - 80px));min-width:280px;border-radius:14px;padding:8px 12px;margin-left:calc((var(--rail) + var(--side) - var(--infoW))/2)}#ecg canvas{width:100%;height:62px;display:block}#labels{inset:0;z-index:7;overflow:hidden}#labels,#tip{position:absolute;pointer-events:none}#tip{background:rgba(8,12,14,.94);border:1px solid var(--line2);border-radius:8px;padding:6px 10px;font-size:13px;z-index:30;white-space:nowrap;transform:translate(14px,14px)}#tip small{display:block;color:var(--muted);font-style:italic;font-size:13px}#loading,#tip small{font-family:var(--f-display)}#loading{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);z-index:50;background:var(--bg);font-size:20px}#toast{position:absolute;z-index:40;left:50%;bottom:28px;transform:translateX(-50%)}#mobnav,.sheet-handle{display:none}@media (max-width:1180px){:root{--side:316px;--infoW:340px}}@media (max-width:920px) and (min-width:768px){#dock{right:12px}#info:not(.isempty)~#dock{display:none}}@media (prefers-reduced-motion:reduce){#dock,#info,#side{transition:none!important}}
 </style>
+<style id="v5css">
+/* ---------- v5: Bedienung, Telefon-Layout (hoch und quer), Home-Bildschirm-App ---------- */
+html,body{overscroll-behavior:none}
+#app{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+#info,#modalBody,#dockNote,#tourCard,#caseBar{-webkit-user-select:text;user-select:text}
+button,select,.switch,.chip,.rail-btn,input[type=range],input[type=checkbox]{touch-action:manipulation}
+html:not(.phone) .md\:hidden{display:none}
+button.tb{cursor:pointer}
+#tbView{color:var(--muted);max-width:46vw}
+#tbView #viewname{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#tbView svg{flex:none;opacity:.7}
+#modalBody .vgrid{display:grid;gap:.4rem;grid-template-columns:repeat(3,minmax(0,1fr))}
+#updbar{position:absolute;z-index:45;left:50%;transform:translateX(-50%);top:calc(60px + env(safe-area-inset-top,0px));border-radius:999px;padding:8px 8px 8px 16px;display:flex;align-items:center;gap:10px;font-size:13px;border-color:var(--accent)}
+#updbar button{border-radius:999px;border:0;background:var(--accent);color:var(--accent-ink);font-weight:600;padding:6px 12px}
+html.phone{--mobnav:calc(60px + env(safe-area-inset-bottom, 0px))}
+html.phone #rail{display:none}
+html.phone #mobnav{display:flex;position:absolute;z-index:20;left:0;right:0;bottom:0;height:var(--mobnav);padding:3px max(6px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0) max(6px,env(safe-area-inset-left,0px));border-radius:0;border-left:0;border-right:0;border-bottom:0;justify-content:space-around;align-items:center}
+html.phone #mobnav .rail-btn{flex:1 1 0;max-width:88px;height:54px;font-size:11px}
+html.phone #dock,html.phone #info,html.phone #side{left:0!important;right:0!important;width:auto!important;top:auto!important;bottom:var(--mobnav)!important;border-radius:20px 20px 0 0;max-height:none;transition:transform .28s cubic-bezier(.2,.8,.2,1),height .26s cubic-bezier(.2,.8,.2,1),max-height .26s cubic-bezier(.2,.8,.2,1);border-bottom:0}
+html.phone #side{height:54vh;height:54dvh}
+html.phone body.sheet-tall #side{height:86vh;height:calc(100dvh - 64px - env(safe-area-inset-top,0px) - var(--mobnav))}
+html.phone #info{height:auto;max-height:60vh;max-height:60dvh}
+html.phone body.sheet-peek #info{max-height:36vh;max-height:36dvh}
+html.phone body.sheet-tall #info{max-height:86vh;max-height:calc(100dvh - 64px - env(safe-area-inset-top,0px) - var(--mobnav))}
+html.phone #dock{max-height:62vh;max-height:62dvh}
+html.phone body:not([data-sheet=side]) #side{opacity:1}
+html.phone body:not([data-sheet=dock]) #dock,html.phone body:not([data-sheet=info]) #info,html.phone body:not([data-sheet=side]) #side{transform:translateY(calc(100% + 40px));pointer-events:none}
+html.phone body.side-closed #side{opacity:1}
+html.phone .sheet-handle{display:block;width:100%;height:28px;flex:none;background:none;border:0;position:relative;touch-action:none;cursor:grab}
+html.phone .sheet-handle:after{content:"";position:absolute;left:50%;top:10px;width:44px;height:5px;border-radius:3px;background:#46565e;transform:translateX(-50%)}
+html.phone #side>header{touch-action:none;padding-top:4px}
+html.phone .sheet-grab{touch-action:none}
+html.phone #info .sheet-handle{margin:-14px 0 -8px}
+html.phone #topbar{left:max(10px,env(safe-area-inset-left,0px))!important;right:max(10px,env(safe-area-inset-right,0px));top:calc(8px + env(safe-area-inset-top, 0px));flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+html.phone #topbar::-webkit-scrollbar{display:none}
+html.phone .tb .tbt{display:none}
+html.phone .tb{height:44px;min-width:44px;border-radius:13px;justify-content:center;flex:none}
+html.phone .tb svg{width:20px;height:20px}
+html.phone #tbView{flex:0 1 auto;min-width:0;padding:0 12px;font-size:13.5px;color:var(--fg)}
+html.phone #tbShot,html.phone #tbShare{display:none}
+html.phone #gizmo{right:10px;bottom:calc(var(--mobnav) + 10px);width:64px;height:64px}
+html.phone body[data-sheet=dock] #gizmo,html.phone body[data-sheet=info] #gizmo,html.phone body[data-sheet=side] #gizmo{display:none}
+html.phone #ecg{left:10px;right:10px;width:auto;min-width:0;transform:none;margin-left:0;top:calc(60px + env(safe-area-inset-top, 0px))}
+html.phone #info.isempty{display:none}
+html.phone .pane{padding:4px 16px calc(22px + env(safe-area-inset-bottom,0px))}
+html.phone #toast{bottom:calc(var(--mobnav) + 20px);width:max-content;max-width:calc(100% - 24px);text-align:center}
+html.phone #caseBar,html.phone #quizbar,html.phone #tourCard{top:auto!important;bottom:calc(var(--mobnav) + 12px)!important;left:10px!important;right:10px!important;width:auto!important;max-width:none!important;transform:none!important}
+html.phone #modal{align-items:end;padding:0}
+html.phone #modalBody{border-radius:22px 22px 0 0;max-width:none;max-height:88dvh;padding:18px 16px calc(18px + env(safe-area-inset-bottom,0px));border-bottom:0}
+/* Trefferflächen und Schriftgrößen für die Bedienung mit dem Finger (mind. 44 px; 16 px in Eingabefeldern verhindert den iOS-Zoom) */
+html.phone .sel,html.phone input[type=search]{font-size:16px!important;min-height:44px}
+html.phone .chip{padding:.72rem .6rem;font-size:13.5px}
+html.phone .chip.sm{padding:.66rem .4rem;font-size:13px}
+html.phone .btn{padding:.82rem .75rem;font-size:14.5px}
+html.phone .seg button{padding:.62rem .4rem;font-size:13.5px}
+html.phone .switch{width:48px;height:28px;border-radius:14px}
+html.phone .switch:after{top:4px;left:4px;width:20px;height:20px}
+html.phone .switch:checked:after{transform:translateX(20px)}
+html.phone .trow{padding-top:.45rem;padding-bottom:.45rem;min-height:46px}
+html.phone .trow>label,html.phone .trow>span.t{font-size:14.5px}
+html.phone .eye{width:40px;height:40px}
+html.phone .item button.nm{padding:9px 6px;font-size:15px}
+html.phone .item button.nm small{font-size:12.5px}
+html.phone .grp-head{padding:11px 2px}
+html.phone .grp-head .gname{font-size:14.5px}
+html.phone input[type=range]{min-height:34px}
+html.phone .rel button{padding:9px 14px;font-size:13.5px}
+html.phone .hint{font-size:13.5px}
+html.phone .label{font-size:11.5px}
+html.phone #info .sec ul{font-size:14.5px}
+html.phone #info h2{font-size:25px}
+html.phone .lbl3d{font-size:12.5px;padding:3px 8px}
+/* Telefon im Querformat: Navigation links, Bereiche als Seitenleiste statt als Bottom-Sheet */
+html.phone.land{--mobnav:0px;--lrail:calc(62px + env(safe-area-inset-left,0px));--lsheet:min(390px,48vw)}
+html.phone.land #mobnav{flex-direction:column;top:0;bottom:0;left:0;right:auto;width:var(--lrail);height:auto;padding:6px 0 6px env(safe-area-inset-left,0px);border:0;border-right:1px solid var(--line);justify-content:space-around}
+html.phone.land #mobnav .rail-btn{flex:none;width:56px;height:48px;max-width:none}
+html.phone.land #dock,html.phone.land #info,html.phone.land #side{left:var(--lrail)!important;right:auto!important;width:var(--lsheet)!important;top:0!important;bottom:0!important;height:auto!important;max-height:none!important;border-radius:0 18px 18px 0;border-left:0;border-bottom:1px solid var(--line)}
+html.phone.land #dock{width:min(540px,62vw)!important}
+html.phone.land body:not([data-sheet=dock]) #dock,html.phone.land body:not([data-sheet=info]) #info,html.phone.land body:not([data-sheet=side]) #side{transform:translateX(calc(-100% - var(--lrail) - 40px))}
+html.phone.land .sheet-handle{display:none}
+html.phone.land #topbar{left:calc(var(--lrail) + 10px)!important;transition:left .25s ease}
+html.phone.land body:not([data-sheet=none]) #topbar{left:calc(var(--lrail) + var(--lsheet) + 10px)!important}
+html.phone.land body[data-sheet=dock] #topbar{display:none}
+html.phone.land #gizmo{bottom:10px;display:block!important}
+html.phone.land #toast{bottom:14px}
+html.phone.land #ecg{left:auto;right:10px;width:min(340px,42vw);top:calc(58px + env(safe-area-inset-top,0px))}
+html.phone.land #caseBar,html.phone.land #quizbar,html.phone.land #tourCard{bottom:10px!important;left:auto!important;right:10px!important;width:min(420px,52vw)!important}
+html.phone.land #modal{align-items:center;padding:10px}
+html.phone.land #modalBody{border-radius:18px;max-width:640px;max-height:94dvh;border-bottom:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){html.phone #dock,html.phone #info,html.phone #side{transition:none!important}}
+</style>
+<script>(function(){try{var d=document.documentElement,w=innerWidth,h=innerHeight,c=matchMedia("(pointer:coarse)").matches,p=w<768||(h<520&&c);d.classList.toggle("phone",p);d.classList.toggle("land",p&&w>h&&h<520);}catch(e){}})();</script>
 </head>
 <body data-sheet="none">
 <div id="app">
@@ -275,7 +374,7 @@
 
   <div id="topbar">
     <button class="tb glass md:hidden" id="mBrand" aria-label="Herz-Atlas: Übersicht" style="background:linear-gradient(140deg,#e8b46a,#b8753a);color:#1d1407;border:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
-    <span class="tb glass" id="viewname" style="color:var(--muted)">Ansicht: anterior</span>
+    <button class="tb glass" id="tbView" title="Standardansichten und Präparate" aria-label="Ansicht wählen"><span class="tbt">Ansicht:</span><span id="viewname">Anterior</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M6 9l6 6 6-6"/></svg></button>
     <button class="tb glass" id="tbReset" title="Ansicht zurücksetzen" aria-label="Ansicht zurücksetzen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><span class="tbt">Zurücksetzen</span></button>
     <button class="tb glass" id="tbPlay" title="Herzschlag" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l2-5 3 10 2-5h7"/></svg><span class="tbt">Herzschlag</span></button>
     <button class="tb glass" id="tbOpac" title="Myokard transparent" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg><span class="tbt">Transparent</span></button>
@@ -1659,7 +1758,7 @@ const S = {
     rel: ['ak', 'arcus', 'lca', 'rca'] },
 
   arcus: { g: 'gefaesse', name: 'Aortenbogen', lat: 'Arcus aortae',
-    def: 'Verläuft von rechts anterior nach links posterior über die rechte Pulmonalarterie und den linken Hauptbronchus.',
+    def: 'Verläuft von rechts anterior nach links posterior über die Pulmonalisbifurkation und den linken Hauptbronchus; die rechte Pulmonalarterie zieht unter dem Bogen hinter der Aorta ascendens nach rechts.',
     anat: ['Abgänge: Truncus brachiocephalicus, A. carotis communis sinistra, A. subclavia sinistra.',
       'Isthmus aortae distal der A. subclavia sinistra am Ansatz des Lig. arteriosum.'],
     klinik: ['Aortenisthmusstenose mit Blutdruckdifferenz zwischen Armen und Beinen.',
@@ -1879,7 +1978,7 @@ canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); showFai
 renderer.localClippingEnabled = true;
 renderer.outputEncoding = THREE.sRGBEncoding;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.08;
+renderer.toneMappingExposure = 1.0;
 renderer.setClearColor(0x000000, 0);
 
 const scene = new THREE.Scene();
@@ -1891,13 +1990,13 @@ controls.enableDamping = true; controls.dampingFactor = 0.085; controls.rotateSp
 controls.minDistance = 5; controls.maxDistance = 95; controls.target.set(0, 0.6, -0.6);
 
 try { if (THREE.RoomEnvironment) { const pm = new THREE.PMREMGenerator(renderer); scene.environment = pm.fromScene(new THREE.RoomEnvironment(), 0.04).texture; pm.dispose(); } } catch (e) { console.warn(e); }
-scene.add(new THREE.HemisphereLight(0xe4ecff, 0x2b1714, 0.35));
-const key = new THREE.DirectionalLight(0xfff1e2, 1.6); key.position.set(9, 13, 15); scene.add(key);
+scene.add(new THREE.HemisphereLight(0xdfe8ff, 0x2a1512, 0.22));
+const key = new THREE.DirectionalLight(0xfff0e0, 1.05); key.position.set(9, 13, 15); scene.add(key);
 key.castShadow = true; key.shadow.mapSize.set(2048, 2048); key.shadow.bias = -0.0004; key.shadow.normalBias = 0.03; key.shadow.radius = 4;
 Object.assign(key.shadow.camera, { left: -13, right: 13, top: 13, bottom: -13, near: 1, far: 60 });
-const fill = new THREE.DirectionalLight(0xbcd2ff, 0.35); fill.position.set(-13, -5, 7); scene.add(fill);
-const rim = new THREE.DirectionalLight(0xffffff, 0.75); rim.position.set(-5, 9, -15); scene.add(rim);
-const head = new THREE.PointLight(0xffffff, 0.25, 0, 0); camera.add(head);
+const fill = new THREE.DirectionalLight(0xbcd2ff, 0.2); fill.position.set(-13, -5, 7); scene.add(fill);
+const rim = new THREE.DirectionalLight(0xfff4ea, 0.6); rim.position.set(-5, 9, -15); scene.add(rim);
+const head = new THREE.PointLight(0xffffff, 0.14, 0, 0); camera.add(head);
 
 const clipPlane = new THREE.Plane(V3(0, 0, -1), 1e5);
 let clipActive = false;
@@ -1913,20 +2012,48 @@ GROUPS.forEach((g) => (gvis[g.id] = g.id !== 'perikard'));
 const CLIP_GROUPS = { myokard: 1, gefaesse: 1, koronar: 1, venen: 1, perikard: 1 };
 const CLIP_IDS = { ivs: 1, ias: 1, fossa: 1 };
 
+// Prozedurales Rauschen (GLSL) für Gewebetexturen
+const NOISE_GLSL = `
+float hsh(vec3 p){ p = fract(p*0.3183099+0.1); p*=17.0; return fract(p.x*p.y*p.z*(p.x+p.y+p.z)); }
+float vno(vec3 x){ vec3 i=floor(x); vec3 f=fract(x); f=f*f*(3.0-2.0*f);
+  return mix(mix(mix(hsh(i),hsh(i+vec3(1,0,0)),f.x),mix(hsh(i+vec3(0,1,0)),hsh(i+vec3(1,1,0)),f.x),f.y),
+             mix(mix(hsh(i+vec3(0,0,1)),hsh(i+vec3(1,0,1)),f.x),mix(hsh(i+vec3(0,1,1)),hsh(i+vec3(1,1,1)),f.x),f.y),f.z); }
+float fbm(vec3 p){ float a=0.5, s=0.0; for(int i=0;i<4;i++){ s+=a*vno(p); p*=2.03; a*=0.5; } return s; }
+float fbm3(vec3 p){ float a=0.5, s=0.0; for(int i=0;i<3;i++){ s+=a*vno(p); p*=2.07; a*=0.5; } return s; }
+vec3 hBump(vec3 N, vec3 P, float h, float k){ vec3 dx=dFdx(P), dy=dFdy(P); float hx=dFdx(h)*k, hy=dFdy(h)*k;
+  vec3 r1=cross(dy,N), r2=cross(N,dx); float det=dot(dx,r1); vec3 g=sign(det)*(hx*r1+hy*r2); return normalize(abs(det)*N-g); }
+`;
+// Gewebe-Oberflächen: 1 = Arterienwand, 2 = Venenwand, 3 = Koronargefäß, 4 = Muskel/Trabekel, 5 = Klappensegel
+const TEX_GLSL = {
+  1: ['float tN = fbm(vOP*1.25); float tM = fbm3(vOP*5.0+3.7); diffuseColor.rgb *= 0.8 + 0.3*tN + 0.1*tM; diffuseColor.rgb = mix(diffuseColor.rgb, diffuseColor.rgb*vec3(1.12,0.95,0.8), smoothstep(0.4,0.75,tN)*0.6); float tH = tN*0.6 + tM*0.4;', 0.02, 0.2],
+  2: ['float tN = fbm(vOP*1.5+2.0); float tM = fbm3(vOP*4.2); diffuseColor.rgb *= 0.76 + 0.36*tN + 0.12*tM; diffuseColor.rgb = mix(diffuseColor.rgb, diffuseColor.rgb*vec3(1.2,0.86,0.95), smoothstep(0.4,0.8,tN)*0.5); float tH = tN*0.7 + tM*0.3;', 0.022, 0.16],
+  3: ['float tN = fbm3(vOP*4.0); diffuseColor.rgb *= 0.86 + 0.28*tN; float tH = tN;', 0.008, 0.22],
+  4: ['float tN = fbm(vOP*3.0); float tM = vno(vec3(vOP.x*16.0, vOP.y*3.5, vOP.z*16.0)); diffuseColor.rgb *= 0.8 + 0.3*tN + 0.1*tM; float tH = tN*0.6 + tM*0.4;', 0.03, 0.2],
+  5: ['float tN = fbm(vOP*2.6); float tM = fbm3(vOP*9.0); diffuseColor.rgb *= 0.9 + 0.14*tN + 0.05*tM; diffuseColor.rgb = mix(diffuseColor.rgb, diffuseColor.rgb*vec3(1.0,0.86,0.8), smoothstep(0.5,0.8,tN)*0.5); float tH = tN*0.5 + tM*0.5;', 0.012, 0.3],
+};
 function matFor(id, color, o = {}) {
   if (mats[id]) return mats[id];
-  const m = new (o.phys && !MOBILE ? THREE.MeshPhysicalMaterial : THREE.MeshStandardMaterial)({
+  const m = new (o.phys ? THREE.MeshPhysicalMaterial : THREE.MeshStandardMaterial)({
     color: new THREE.Color(color).convertSRGBToLinear(), roughness: o.rough != null ? o.rough : 0.55, metalness: 0,
     side: THREE.DoubleSide,
   });
-  if (o.phys && !MOBILE) { m.clearcoat = 0.2; m.clearcoatRoughness = 0.5; }
-  m.envMapIntensity = 0.55;
+  if (o.phys) { m.clearcoat = o.coat != null ? o.coat : 0.4; m.clearcoatRoughness = 0.28; }
+  m.envMapIntensity = 0.45;
+  const tex = TEX_GLSL[o.tex]; if (tex) m.extensions = { derivatives: true };
   m.userData = { baseOpacity: o.opacity != null ? o.opacity : 1, baseEm: new THREE.Color(o.em || 0x000000).convertSRGBToLinear(), glow: o.glow ? new THREE.Color(o.glow).convertSRGBToLinear() : null };
   const clip = CLIP_GROUPS[S[id].g] || CLIP_IDS[id];
   m.userData.clip = !!clip;
   if (clip) m.clippingPlanes = [clipPlane];
   const dark = o.back != null ? o.back : 0.6;
   m.onBeforeCompile = (sh) => {
+    if (tex) {
+      sh.vertexShader = 'varying vec3 vOP;\n' + sh.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\n vOP = position;');
+      sh.fragmentShader = 'varying vec3 vOP;\n' + NOISE_GLSL + sh.fragmentShader
+        .replace('#include <color_fragment>', '#include <color_fragment>\n ' + tex[0])
+        .replace('#include <normal_fragment_maps>', '#include <normal_fragment_maps>\n normal = hBump(normal, -vViewPosition, tH, ' + tex[1].toFixed(4) + ');')
+        // dünnwandiges, durchblutetes Gewebe: rötliches Durchscheinen an den Konturen
+        .replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\n totalEmissiveRadiance += diffuseColor.rgb * vec3(1.0, 0.4, 0.34) * ' + tex[2].toFixed(3) + ' * pow(1.0 - abs(dot(normal, normalize(vViewPosition))), 2.5);');
+    }
     sh.fragmentShader = sh.fragmentShader.replace('#include <dithering_fragment>',
       '#include <dithering_fragment>\n if (!gl_FrontFacing) gl_FragColor.rgb *= ' + dark.toFixed(2) + ';');
   };
@@ -2011,9 +2138,9 @@ function tubeGeo(curve, r0, r1, seg = 64, rad = 16, prof) {
   g.computeVertexNormals(); return g;
 }
 function curveOf(pts, tension = 0.5) { return new THREE.CatmullRomCurve3(pts, false, 'catmullrom', tension); }
-function tube(id, sub, pts, r0, r1, mat, parent, seg, rad) {
+function tube(id, sub, pts, r0, r1, mat, parent, seg, rad, prof) {
   const curve = (pts instanceof THREE.Curve) ? pts : curveOf(pts);
-  const m = new THREE.Mesh(tubeGeo(curve, r0, r1 == null ? r0 : r1, seg || 64, rad || 16), mat);
+  const m = new THREE.Mesh(tubeGeo(curve, r0, r1 == null ? r0 : r1, seg || 64, rad || 16, prof), mat);
   parent.add(m); reg(m, id, sub); m.userData.curve = curve; return m;
 }
 const lumenMat = new THREE.MeshStandardMaterial({ color: new THREE.Color('#3a0e0c').convertSRGBToLinear(), roughness: 0.9, metalness: 0, side: THREE.DoubleSide, clippingPlanes: [clipPlane] });
@@ -2051,12 +2178,12 @@ function axisDef(d, baseW, tipW) { const b = L(...baseW), t = L(...tipW); d.c = 
 
 // ---------- Farben (realistisch) ----------
 const C = {
-  valve: '#eadcc4', pap: '#8a332a', tsm: '#86322a', aorta: '#b05a4a', pa: '#6c5f8e', vc: '#4b4e78', pv: '#9c5047',
-  cor: '#c23a2a', vein: '#5a5d9e', cond: '#f2c14e', peri: '#e8d2a6', lig: '#d9bba6',
+  valve: '#e6d6bc', pap: '#8a3a30', tsm: '#86382e', aorta: '#9c4a3e', pa: '#666c9a', vc: '#454a80', pv: '#994a42',
+  cor: '#b8281e', vein: '#474c90', cond: '#f2c14e', peri: '#e8d2a6', lig: '#cdb09a',
 };
 const COL = {
-  epiV: new THREE.Color('#8a2f27'), epiA: new THREE.Color('#a24a40'), au: new THREE.Color('#9a3e35'),
-  endo: new THREE.Color('#8e4639'), endoA: new THREE.Color('#9c5649'), sept: new THREE.Color('#8a4236'),
+  epiV: new THREE.Color('#7e261e'), epiA: new THREE.Color('#8a4a4a'), au: new THREE.Color('#874040'),
+  endo: new THREE.Color('#a05a4b'), endoA: new THREE.Color('#aa6a5b'), sept: new THREE.Color('#9a5446'),
   fat: new THREE.Color('#d6b47a'), fossa: new THREE.Color('#e8c3b0'),
 };
 Object.values(COL).forEach((c) => c.convertSRGBToLinear());
@@ -2082,8 +2209,8 @@ const VD = {
 Object.values(VD).forEach((v) => v.n.normalize());
 
 // RVOT als Kapselkette
-const rvotCurve = curveOf([V3(-0.7, -1.7, 1.9), V3(0.1, -0.6, 2.3), L(0.4, 1.3, 2.0), VD.pk.c.clone()]);
-const RVOT = []; for (let i = 0; i <= 8; i++) { const t = i / 8; RVOT.push({ p: rvotCurve.getPointAt(t), r: 1.42 - 0.3 * t }); }
+const rvotCurve = curveOf([V3(-0.7, -1.7, 1.9), V3(0.1, -0.6, 2.3), L(0.4, 1.3, 2.0).lerp(VD.pk.c.clone().addScaledVector(VD.pk.n, -1.0), 0.5), VD.pk.c.clone().addScaledVector(VD.pk.n, -0.55), VD.pk.c.clone()]);
+const RVOT = []; for (let i = 0; i <= 8; i++) { const t = i / 8; RVOT.push({ p: rvotCurve.getPointAt(t), r: 1.42 - 0.2 * t }); }
 
 // ---------- Implizites Feld (Signed-Distance-Näherung, optimiert) ----------
 const BL = [D.lv, D.rv, D.ra, D.la, D.rau, D.lau];
@@ -2125,11 +2252,14 @@ function valveCyl(v, x, y, z, rf, a0, a1) {
   return Math.max(rad - v.R * rf, a0 - ax, ax - a1);
 }
 const smin = (a, b, k) => { const h = clamp(0.5 + 0.5 * (b - a) / k, 0, 1); return b + (a - b) * h - k * h * (1 - h); };
-let capD = 0;
-function evalAll(x, y, z) { for (let i = 0; i < 6; i++) blobLR(BL[i], i, x, y, z); capD = capsuleChain(RVOT, x, y, z, 0); }
+let capD = 0, capRaw = 0, colD = 9;
+// Faserring-Wulst um die AV-Klappen: schließt die Herzwand im Sulcus coronarius (kein freiliegender Anulus)
+function torusD(v, x, y, z, rm) { const px = x - v.c.x, py = y - v.c.y, pz = z - v.c.z; const ax = px * v.n.x + py * v.n.y + pz * v.n.z; const rx = px - v.n.x * ax, ry = py - v.n.y * ax, rz = pz - v.n.z * ax; const a = Math.sqrt(rx * rx + ry * ry + rz * rz) - v.R; return Math.sqrt(a * a + ax * ax) - rm; }
+const PKT = VD.pk.c.clone().addScaledVector(VD.pk.n, 0.14); // das muskuläre Infundibulum endet knapp über der Klappenebene
+function evalAll(x, y, z) { for (let i = 0; i < 6; i++) blobLR(BL[i], i, x, y, z); capRaw = capD = capsuleChain(RVOT, x, y, z, 0); const cl = (x - PKT.x) * VD.pk.n.x + (y - PKT.y) * VD.pk.n.y + (z - PKT.z) * VD.pk.n.z; if (cl > capD) capD = cl; colD = Math.min(torusD(VD.tk, x, y, z, 0.5), torusD(VD.mk, x, y, z, 0.5)); }
 const oo = (i) => (LN[i] - RR[i]) * 0.85;
 const ss = (i, s) => (LN[i] - RR[i] * s) * 0.85;
-function outerNow() { let f = smin(oo(0), oo(1), 0.35); f = smin(f, capD, 0.45); f = smin(f, oo(2), 0.5); f = smin(f, oo(3), 0.45); f = smin(f, oo(4), 0.25); f = smin(f, oo(5), 0.2); return f; }
+function outerNow() { let f = smin(oo(0), oo(1), 0.35); f = smin(f, capD, 0.45); f = smin(f, oo(2), 0.5); f = smin(f, oo(3), 0.45); f = smin(f, oo(4), 0.25); f = smin(f, oo(5), 0.2); f = smin(f, colD, 0.3); return f; }
 const CV = { c: 0, lvC: 0, rvC: 0, raC: 0, laC: 0 };
 function cavNow(x, y, z) {
   const lvS = ss(0, CAV.lv), rvS = Math.min(ss(1, CAV.rv), capD + 0.36), raS = ss(2, CAV.ra), laS = ss(3, CAV.la);
@@ -2142,7 +2272,7 @@ function cavNow(x, y, z) {
   let c = Math.min(CV.lvC, CV.rvC, CV.raC, CV.laC);
   const oN = outerNow() + 0.32;
   c = Math.min(c, Math.max(valveCyl(VD.mk, x, y, z, 0.92, -0.6, 0.6), oN), Math.max(valveCyl(VD.tk, x, y, z, 0.9, -0.55, 0.55), oN));
-  c = Math.min(c, valveCyl(VD.ak, x, y, z, 0.92, -1.7, 1.2), valveCyl(VD.pk, x, y, z, 0.95, -0.9, 0.9));
+  c = Math.min(c, valveCyl(VD.ak, x, y, z, 0.92, -1.7, 1.2), Math.max(valveCyl(VD.pk, x, y, z, 0.95, -0.9, 0.9), capRaw + 0.2));
   CV.c = c; return c;
 }
 function solid(x, y, z) { evalAll(x, y, z); return Math.max(outerNow(), -cavNow(x, y, z)); }
@@ -2252,42 +2382,51 @@ function marchIn(origin, dirV, off) { // aus einer Höhle auf das Endokard
 }
 
 // ---------- Myokard-Material (Muskelrelief, Kontraktion im Vertex-Shader) ----------
-const myoU = { uS: { value: V3(1, 1, 1) }, uA: { value: 1 }, uPiv: { value: PIV.clone() }, uMap: { value: 0 }, uTime: { value: 0 }, uTmax: { value: 120 }, uIso: { value: 10 }, uOvOn: { value: 0 }, uHole0: { value: new THREE.Vector4(0, 0, 0, -1) }, uHole1: { value: new THREE.Vector4(0, 0, 0, -1) } };
-const NOISE_GLSL = `
-float hsh(vec3 p){ p = fract(p*0.3183099+0.1); p*=17.0; return fract(p.x*p.y*p.z*(p.x+p.y+p.z)); }
-float vno(vec3 x){ vec3 i=floor(x); vec3 f=fract(x); f=f*f*(3.0-2.0*f);
-  return mix(mix(mix(hsh(i),hsh(i+vec3(1,0,0)),f.x),mix(hsh(i+vec3(0,1,0)),hsh(i+vec3(1,1,0)),f.x),f.y),
-             mix(mix(hsh(i+vec3(0,0,1)),hsh(i+vec3(1,0,1)),f.x),mix(hsh(i+vec3(0,1,1)),hsh(i+vec3(1,1,1)),f.x),f.y),f.z); }
-float fbm(vec3 p){ float a=0.5, s=0.0; for(int i=0;i<4;i++){ s+=a*vno(p); p*=2.03; a*=0.5; } return s; }
-`;
+const myoU = { uS: { value: V3(1, 1, 1) }, uA: { value: 1 }, uPiv: { value: PIV.clone() }, uMap: { value: 0 }, uTime: { value: 0 }, uTmax: { value: 120 }, uIso: { value: 10 }, uOvOn: { value: 0 }, uHole0: { value: new THREE.Vector4(0, 0, 0, -1) }, uHole1: { value: new THREE.Vector4(0, 0, 0, -1) } , uDetail: { value: 1 }, uAxO: { value: V3(...D.lv.c) }, uAx: { value: V3(0, -1, 0).applyQuaternion(D.lv.q) }, uE1: { value: V3(1, 0, 0).applyQuaternion(D.lv.q) }, uE2: { value: V3(0, 0, 1).applyQuaternion(D.lv.q) } };
 function myoMat(id) {
-  const m = MOBILE ? new THREE.MeshStandardMaterial({ color: 0xffffff, vertexColors: true, roughness: 0.4, metalness: 0, side: THREE.DoubleSide })
-    : new THREE.MeshPhysicalMaterial({ color: 0xffffff, vertexColors: true, roughness: 0.58, metalness: 0, clearcoat: 0.22, clearcoatRoughness: 0.5, side: THREE.DoubleSide });
-  m.extensions = { derivatives: true }; m.envMapIntensity = 0.45;
+  const m = new THREE.MeshPhysicalMaterial({ color: 0xffffff, vertexColors: true, roughness: 0.7, metalness: 0, clearcoat: 0.42, clearcoatRoughness: 0.17, side: THREE.DoubleSide });
+  m.extensions = { derivatives: true }; m.envMapIntensity = 0.4;
   m.userData = { baseOpacity: 1, baseEm: new THREE.Color(0), glow: null, clip: true };
   m.clippingPlanes = [clipPlane];
   m.onBeforeCompile = (sh) => {
     Object.assign(sh.uniforms, myoU);
-    sh.vertexShader = 'attribute float aW; attribute float aK; attribute vec4 aOv; attribute float aT;\nuniform vec3 uS; uniform float uA; uniform vec3 uPiv;\nvarying vec3 vOP; varying vec4 vOv; varying float vT;\n' +
-      sh.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\n vOP = position; vOv = aOv; vT = aT;\n vec3 sc = mix(vec3(uA), uS, aW);\n sc = vec3(1.0) + (sc - vec3(1.0)) * aK;\n transformed = uPiv + (position - uPiv) * sc;');
-    sh.fragmentShader = 'varying vec3 vOP; varying vec4 vOv; varying float vT;\nuniform float uMap, uTime, uTmax, uIso, uOvOn; uniform vec4 uHole0, uHole1;\nvec3 hsv(float h){ vec3 k = clamp(abs(mod(h*6.0+vec3(0.0,4.0,2.0),6.0)-3.0)-1.0,0.0,1.0); return k; }\n' + NOISE_GLSL + sh.fragmentShader
-      .replace('void main() {', 'void main() {\n if (distance(vOP, uHole0.xyz) < uHole0.w || distance(vOP, uHole1.xyz) < uHole1.w) discard;')
+    sh.vertexShader = 'attribute float aW; attribute float aK; attribute vec4 aOv; attribute float aT; attribute vec3 aTis;\nuniform vec3 uS; uniform float uA; uniform vec3 uPiv;\nvarying vec3 vOP; varying vec4 vOv; varying float vT; varying vec3 vTis; varying float vW;\n' +
+      sh.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\n vOP = position; vOv = aOv; vT = aT; vTis = aTis; vW = aW;\n vec3 sc = mix(vec3(uA), uS, aW);\n sc = vec3(1.0) + (sc - vec3(1.0)) * aK;\n transformed = uPiv + (position - uPiv) * sc;');
+    sh.fragmentShader = 'varying vec3 vOP; varying vec4 vOv; varying float vT; varying vec3 vTis; varying float vW;\nuniform float uMap, uTime, uTmax, uIso, uOvOn, uDetail; uniform vec4 uHole0, uHole1; uniform vec3 uAxO, uAx, uE1, uE2;\nvec3 hsv(float h){ vec3 k = clamp(abs(mod(h*6.0+vec3(0.0,4.0,2.0),6.0)-3.0)-1.0,0.0,1.0); return k; }\n' + NOISE_GLSL + sh.fragmentShader
+      .replace('void main() {', 'void main() {\n if (distance(vOP, uHole0.xyz) < uHole0.w || distance(vOP, uHole1.xyz) < uHole1.w) discard;\n float mFat = 0.0, mH = 0.0, mWet = 0.0;')
       .replace('#include <color_fragment>', `#include <color_fragment>
+  { // Gewebe: Muskelfaserung, Marmorierung, feine Gefäße, lobuliertes epikardiales Fett
+    float epi = step(0.5, vTis.y); vec3 q = vOP; float px = length(fwidth(q));
+    float nL = fbm(q*1.5); float nM = fbm(q*5.2 + 7.3);
+    vec3 rel = q - uAxO; float ah = dot(rel, uAx); vec3 rr = rel - uAx*ah; float th = atan(dot(rr, uE2), dot(rr, uE1));
+    float wv = (nL - 0.5)*6.0; float hel = mix(-9.0, 14.0, epi);
+    float fib = sin(th*64.0 + ah*hel + wv)*0.6 + sin(th*113.0 + ah*hel*1.7 + wv*1.8 + nM*5.0)*0.4;
+    fib *= smoothstep(0.35, 0.65, vW) * (1.0 - smoothstep(0.02, 0.07, px)) * uDetail;
+    vec3 mus = diffuseColor.rgb * (0.8 + 0.36*nL);
+    mus = mix(mus, mus*vec3(1.16, 0.86, 0.8), smoothstep(0.35, 0.7, nM)*0.45);
+    mus *= 1.0 + 0.1*fib;
+    float fA = vTis.x + (nL - 0.5)*0.55 + (nM - 0.5)*0.4;
+    float fat = smoothstep(0.45, 0.62, fA) * epi;
+    float lob = vno(q*8.5), lob2 = vno(q*21.0);
+    vec3 fatC = mix(vec3(0.66, 0.38, 0.075), vec3(0.86, 0.63, 0.24), lob*0.65 + lob2*0.35);
+    fatC = mix(fatC, fatC*vec3(1.0, 0.72, 0.6), (1.0 - smoothstep(0.6, 0.78, fA))*0.55);
+    diffuseColor.rgb = mix(mus, fatC, fat) * vTis.z;
+    mFat = fat; mWet = epi; mH = nL*0.5 + nM*0.32 + fib*0.05 + fat*(0.3 + lob*0.5 + lob2*0.2);
+  }
   diffuseColor.rgb = mix(diffuseColor.rgb, vOv.rgb, clamp(vOv.a * uOvOn, 0.0, 1.0));
   if (uMap > 0.5 && vT >= 0.0) { float f = clamp(vT / uTmax, 0.0, 1.0); vec3 pc = pow(hsv(f * 0.78), vec3(2.2)) * 0.85;
     float iso = abs(fract(vT / uIso) - 0.5) * 2.0; if (uIso > 0.0) pc *= 1.0 - 0.6 * smoothstep(0.86, 0.97, iso);
     if (uMap > 1.5) { pc = vT <= uTime ? pc : vec3(0.06); }
     diffuseColor.rgb = pc; }`)
-      .replace('#include <normal_fragment_maps>', `#include <normal_fragment_maps>
-  { float hh = fbm(vOP*2.2)*0.6 + fbm(vec3(vOP.x*7.0, vOP.y*2.5, vOP.z*7.0))*0.4;
-    vec3 mPx = dFdx(-vViewPosition), mPy = dFdy(-vViewPosition); float mHx = dFdx(hh)*0.035, mHy = dFdy(hh)*0.035;
-    vec3 mR1 = cross(mPy, normal), mR2 = cross(normal, mPx); float mDet = dot(mPx, mR1);
-    vec3 mG = sign(mDet) * (mHx * mR1 + mHy * mR2); normal = normalize(abs(mDet) * normal - mG); }`)
+      .replace('#include <roughnessmap_fragment>', '#include <roughnessmap_fragment>\n roughnessFactor = mix(clamp(roughnessFactor - 0.16 + 0.34*mH, 0.3, 0.9), 0.4, mFat);')
+      .replace('#include <normal_fragment_maps>', '#include <normal_fragment_maps>\n normal = hBump(normal, -vViewPosition, mH, 0.042);')
+      // durchblutetes Gewebe: rötliches Durchscheinen an streifend gesehenen Flächen (angenäherte Volumenstreuung)
+      .replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\n totalEmissiveRadiance += diffuseColor.rgb * mix(vec3(1.0, 0.3, 0.24), vec3(1.0, 0.62, 0.3), mFat) * 0.24 * pow(1.0 - abs(dot(normal, normalize(vViewPosition))), 2.2);')
       .replace('#include <dithering_fragment>', '#include <dithering_fragment>\n if (uMap > 1.5 && vT >= 0.0) { float wv = exp(-pow((uTime - vT) / 7.0, 2.0)); gl_FragColor.rgb += vec3(1.0, 0.95, 0.75) * wv * 0.7; }\n if (!gl_FrontFacing) { float cn = fbm(vOP*5.0) * 0.7 + vno(vec3(vOP.x*14.0, vOP.y*4.0, vOP.z*14.0)) * 0.3; gl_FragColor.rgb = mix(vec3(0.26, 0.045, 0.035), vec3(0.5, 0.11, 0.08), cn); }');
   };
   mats[id] = m; return m;
 }
-function addMyoAttrs(geo) { const n = geo.attributes.position.count; geo.setAttribute('aK', new THREE.Float32BufferAttribute(new Float32Array(n).fill(1), 1)); geo.setAttribute('aOv', new THREE.Float32BufferAttribute(new Float32Array(n * 4), 4)); geo.setAttribute('aT', new THREE.Float32BufferAttribute(new Float32Array(n).fill(-1), 1)); return geo; }
+function addMyoAttrs(geo) { const n = geo.attributes.position.count; geo.setAttribute('aK', new THREE.Float32BufferAttribute(new Float32Array(n).fill(1), 1)); geo.setAttribute('aOv', new THREE.Float32BufferAttribute(new Float32Array(n * 4), 4)); geo.setAttribute('aT', new THREE.Float32BufferAttribute(new Float32Array(n).fill(-1), 1)); if (!geo.attributes.aTis) { const ti = new Float32Array(n * 3); for (let i = 0; i < n; i++) ti[3 * i + 2] = 1; geo.setAttribute('aTis', new THREE.Float32BufferAttribute(ti, 3)); } return geo; }
 function addW(geo, w) { geo.setAttribute('aW', new THREE.Float32BufferAttribute(new Float32Array(geo.attributes.position.count).fill(w), 1)); return addMyoAttrs(geo); }
 const myoGeos = [];
 
@@ -2296,7 +2435,7 @@ const valves = {};
 function buildValve(id, kind, parent, specFn) {
   const vd = VD[id]; const grp = new THREE.Group(); grp.position.copy(vd.c);
   grp.quaternion.setFromUnitVectors(V3(0, 1, 0), vd.n.clone().normalize()); parent.add(grp);
-  const mat = matFor(id, C.valve, { rough: 0.5, back: 0.92 });
+  const mat = matFor(id, C.valve, { rough: 0.46, back: 0.92, phys: true, tex: 5, coat: 0.3 });
   const R = vd.R;
   const ann = new THREE.Mesh(new THREE.TorusGeometry(R, kind === 'sl' ? 0.1 : 0.12, 12, 72), mat); ann.rotation.x = Math.PI / 2; grp.add(ann); reg(ann, id, 'Anulus');
   const qi = grp.quaternion.clone().invert();
@@ -2369,7 +2508,8 @@ function sinusPoint(id, dirHeart) {
 
 // ---------- Große Gefäße ----------
 heart.updateMatrixWorld(true);
-function vesselMat(id, color) { return matFor(id, color, { rough: 0.55, phys: true }); }
+const VEIN_IDS = { vcs: 1, vci: 1, tp: 1, aps: 1, apd: 1 }; // dünnwandige Gefäße
+function vesselMat(id, color) { return matFor(id, color, { rough: 0.5, phys: true, tex: VEIN_IDS[id] ? 2 : 1, coat: 0.45 }); }
 const mAo = vesselMat('aorta_asc', C.aorta); const mArc = vesselMat('arcus', C.aorta); const mDes = vesselMat('aorta_desc', C.aorta);
 const akW = H(VD.ak.c), akN = H(VD.ak.c.clone().add(VD.ak.n.clone().multiplyScalar(1.3)));
 const aortaCurve = curveOf([akW, akN, V3(-1.35, 4.4, 0.5), V3(-1.05, 6.4, 0.25), V3(0.2, 7.6, -0.6), V3(1.6, 7.4, -1.9), V3(2.3, 5.9, -2.9), V3(2.25, 3.5, -3.45), V3(1.95, -1.0, -3.65), V3(1.8, -4.2, -3.65)]);
@@ -2378,48 +2518,49 @@ const uTr = findU(aortaCurve, (p, u) => (u > 0.15 && u < 0.6 ? Math.abs(p.x + 0.
 const uCa = findU(aortaCurve, (p, u) => (u > uTr ? Math.abs(p.x - 0.45) + (p.y < 6 ? 9 : 0) : 9));
 const uSu = findU(aortaCurve, (p, u) => (u > uCa ? Math.abs(p.x - 1.25) + (p.y < 6 ? 9 : 0) : 9));
 const uEnd = uSu + 0.07;
-tube('aorta_asc', null, new SubCurve(aortaCurve, 0, uTr - 0.012), 1.22, 1.3, mAo, world, 64, 36);
-tube('arcus', null, new SubCurve(aortaCurve, uTr - 0.013, uEnd), 1.3, 1.22, mArc, world, 56, 36);
-tube('aorta_desc', null, new SubCurve(aortaCurve, uEnd - 0.001, 1), 1.22, 1.15, mDes, world, 72, 36);
+// Kaliber in Modelleinheiten (1 Einheit ≈ 12,9 mm): Aorta ascendens ≈ 31 mm, Bogen ≈ 28 mm, descendens ≈ 25 mm
+tube('aorta_asc', null, new SubCurve(aortaCurve, 0, uTr - 0.012), 1.18, 1.22, mAo, world, 64, 36);
+tube('arcus', null, new SubCurve(aortaCurve, uTr - 0.013, uEnd), 1.22, 1.08, mArc, world, 56, 36);
+tube('aorta_desc', null, new SubCurve(aortaCurve, uEnd - 0.001, 1), 1.08, 0.97, mDes, world, 72, 36);
 // Aortenwurzel mit drei Sinus-Ausbuchtungen
 (() => {
   const g = new THREE.SphereGeometry(1, 48, 32); const p = g.attributes.position; const v = new THREE.Vector3();
-  for (let i = 0; i < p.count; i++) { v.fromBufferAttribute(p, i); const a = Math.atan2(v.z, v.x); const b = 1 + 0.12 * Math.max(0, Math.cos(3 * a)); p.setXYZ(i, v.x * 1.38 * b, v.y * 1.05, v.z * 1.38 * b); }
+  for (let i = 0; i < p.count; i++) { v.fromBufferAttribute(p, i); const a = Math.atan2(v.z, v.x); const b = 1 + 0.12 * Math.max(0, Math.cos(3 * a)); p.setXYZ(i, v.x * 1.34 * b, v.y * 1.05, v.z * 1.34 * b); }
   g.computeVertexNormals();
   const root = new THREE.Mesh(g, mAo); root.position.copy(H(VD.ak.c.clone().add(VD.ak.n.clone().multiplyScalar(0.6))));
   root.quaternion.copy(heart.quaternion).multiply(valves.ak.grp.quaternion); world.add(root); reg(root, 'aorta_asc', 'Sinus aortae (Valsalva)');
 })();
 function branch(id, u, pts, r0, r1) { const o = aortaCurve.getPointAt(u); const p = [o.clone().add(V3(0, -0.3, 0)), ...pts]; const m = tube(id, null, p, r0, r1, vesselMat(id, C.aorta), world, 30, 20); capAt(m.userData.curve, 1, r1, mats[id], world, id); }
 const oTr = aortaCurve.getPointAt(uTr), oCa = aortaCurve.getPointAt(uCa), oSu = aortaCurve.getPointAt(uSu);
-branch('truncus_bc', uTr, [oTr.clone().add(V3(-0.35, 1.6, 0.2)), V3(oTr.x - 1.0, 9.8, oTr.z + 0.4)], 0.68, 0.62);
-branch('carotis_l', uCa, [oCa.clone().add(V3(0, 1.6, 0.05)), V3(oCa.x + 0.2, 10.2, oCa.z + 0.2)], 0.45, 0.42);
-branch('subclavia_l', uSu, [oSu.clone().add(V3(0.3, 1.4, -0.1)), V3(oSu.x + 1.2, 9.4, oSu.z - 0.1), V3(oSu.x + 2.4, 9.8, oSu.z - 0.2)], 0.5, 0.46);
-capAt(aortaCurve, 1, 1.15, mDes, world, 'aorta_desc');
+branch('truncus_bc', uTr, [oTr.clone().add(V3(-0.35, 1.6, 0.2)), V3(oTr.x - 1.0, 9.8, oTr.z + 0.4)], 0.56, 0.5);
+branch('carotis_l', uCa, [oCa.clone().add(V3(0, 1.6, 0.05)), V3(oCa.x + 0.2, 10.2, oCa.z + 0.2)], 0.36, 0.32);
+branch('subclavia_l', uSu, [oSu.clone().add(V3(0.3, 1.4, -0.1)), V3(oSu.x + 1.2, 9.4, oSu.z - 0.1), V3(oSu.x + 2.4, 9.8, oSu.z - 0.2)], 0.42, 0.37);
+capAt(aortaCurve, 1, 0.97, mDes, world, 'aorta_desc');
 const pkW = H(VD.pk.c), pkN = H(VD.pk.c.clone().add(VD.pk.n.clone().multiplyScalar(1.6)));
 const bif = V3(1.6, 4.4, -1.3);
-tube('tp', null, [H(VD.pk.c.clone().addScaledVector(VD.pk.n, -0.25)), pkN, bif.clone().add(V3(-0.15, -0.2, 0.55)), bif], 1.2, 1.1, vesselMat('tp', C.pa), world, 40, 32);
-const bifS = new THREE.Mesh(new THREE.SphereGeometry(1.12, 32, 24), mats.tp); bifS.position.copy(bif); world.add(bifS); reg(bifS, 'tp', 'Bifurcatio trunci pulmonalis');
-const lpa = tube('aps', null, [bif, V3(2.9, 4.55, -2.0), V3(4.0, 4.4, -2.6)], 0.88, 0.8, vesselMat('aps', C.pa), world, 30, 22);
-capAt(lpa.userData.curve, 1, 0.8, mats.aps, world, 'aps');
-const rpa = tube('apd', null, [bif, V3(0.0, 4.4, -2.25), V3(-2.4, 4.3, -2.35), V3(-3.9, 4.2, -2.35)], 0.9, 0.8, vesselMat('apd', C.pa), world, 40, 22);
-capAt(rpa.userData.curve, 1, 0.8, mats.apd, world, 'apd');
+tube('tp', null, [H(VD.pk.c.clone().addScaledVector(VD.pk.n, -0.5)), pkN, bif.clone().add(V3(-0.15, -0.2, 0.55)), bif], 1.22, 1.02, vesselMat('tp', C.pa), world, 40, 32, (t) => 1.02 + 0.36 * Math.exp(-t * 3.2) - 0.1 * Math.exp(-t * 14));
+const bifS = new THREE.Mesh(new THREE.SphereGeometry(1.04, 32, 24), mats.tp); bifS.position.copy(bif); world.add(bifS); reg(bifS, 'tp', 'Bifurcatio trunci pulmonalis');
+const lpa = tube('aps', null, [bif, V3(2.9, 4.55, -2.0), V3(4.0, 4.4, -2.6)], 0.84, 0.68, vesselMat('aps', C.pa), world, 30, 22);
+capAt(lpa.userData.curve, 1, 0.68, mats.aps, world, 'aps');
+const rpa = tube('apd', null, [bif, V3(0.0, 4.4, -2.25), V3(-2.4, 4.3, -2.35), V3(-3.9, 4.2, -2.35)], 0.86, 0.7, vesselMat('apd', C.pa), world, 40, 22);
+capAt(rpa.userData.curve, 1, 0.7, mats.apd, world, 'apd');
 const laPt = lpa.userData.curve.getPointAt(0.25).add(V3(0, 0.6, 0));
 const arcUnder = aortaCurve.getPointAt(uEnd - 0.01).add(V3(0, -1.1, 0.25));
 tube('lig_art', null, [laPt, laPt.clone().lerp(arcUnder, 0.5).add(V3(0.15, 0, 0)), arcUnder], 0.16, 0.16, vesselMat('lig_art', C.lig), world, 16, 10);
 const svcB = H(V3(-1.9, 3.3, -0.55));
-const svc = tube('vcs', null, [svcB, svcB.clone().add(V3(0.1, 1.8, -0.15)), V3(svcB.x + 0.15, 6.9, svcB.z - 0.35)], 0.98, 0.92, vesselMat('vcs', C.vc), world, 30, 26);
-capAt(svc.userData.curve, 1, 0.92, mats.vcs, world, 'vcs');
+const svc = tube('vcs', null, [svcB, svcB.clone().add(V3(0.1, 1.8, -0.15)), V3(svcB.x + 0.15, 6.9, svcB.z - 0.35)], 0.98, 0.8, vesselMat('vcs', C.vc), world, 30, 26, (t) => 0.8 + 0.3 * Math.exp(-t * 5));
+capAt(svc.userData.curve, 1, 0.8, mats.vcs, world, 'vcs');
 const ivcB = H(V3(-2.55, 0.7, -1.0));
-const ivc = tube('vci', null, [ivcB, ivcB.clone().add(V3(0.15, -1.2, -0.3)), V3(ivcB.x + 0.25, ivcB.y - 2.5, ivcB.z - 0.55)], 1.1, 1.12, vesselMat('vci', C.vc), world, 30, 26);
-capAt(ivc.userData.curve, 1, 1.12, mats.vci, world, 'vci');
+const ivc = tube('vci', null, [ivcB, ivcB.clone().add(V3(0.15, -1.2, -0.3)), V3(ivcB.x + 0.25, ivcB.y - 2.5, ivcB.z - 0.55)], 1.1, 0.96, vesselMat('vci', C.vc), world, 30, 26, (t) => 0.96 + 0.24 * Math.exp(-t * 4));
+capAt(ivc.userData.curve, 1, 0.96, mats.vci, world, 'vci');
 const mPV = vesselMat('vpulm', C.pv);
 const laW = H(V3(...D.la.c));
 [['Rechte obere Lungenvene', V3(-1.3, 0.6, -0.7), V3(-1.5, 0.3, -0.3), V3(-2.7, 0.6, -0.5)],
  ['Rechte untere Lungenvene', V3(-1.3, -0.5, -0.8), V3(-1.5, -0.2, -0.3), V3(-2.6, -0.4, -0.5)],
  ['Linke obere Lungenvene', V3(1.5, 0.6, -0.7), V3(1.5, 0.3, -0.4), V3(2.7, 0.6, -0.6)],
  ['Linke untere Lungenvene', V3(1.5, -0.5, -0.8), V3(1.5, -0.2, -0.4), V3(2.6, -0.4, -0.6)]].forEach(([n, a, d1, d2]) => {
-  const s = laW.clone().add(a); const m = tube('vpulm', n, [s, s.clone().add(d1), s.clone().add(d2)], 0.6, 0.55, mPV, world, 24, 18);
-  capAt(m.userData.curve, 1, 0.55, mPV, world, 'vpulm', n);
+  const s = laW.clone().add(a); const m = tube('vpulm', n, [s, s.clone().add(d1), s.clone().add(d2)], 0.6, 0.48, mPV, world, 24, 18, (t) => 0.48 + 0.24 * Math.exp(-t * 5));
+  capAt(m.userData.curve, 1, 0.48, mPV, world, 'vpulm', n);
 });
 
 // ---------- Koronarien (auf die Epikardfläche projiziert) ----------
@@ -2439,8 +2580,8 @@ function surfPath(raw, ctrl, off, n = 60) {
 const corPaths = []; // für epikardiales Fett
 function cor(id, sub, raw, ctrl, r0, r1, parent, mat, off) {
   const pts = surfPath(raw, ctrl, off != null ? off : r0 * 0.35);
-  corPaths.push({ pts, r: Math.max(r0, 0.12) });
-  return tube(id, sub, pts, r0, r1, mat || matFor(id, C.cor, { rough: 0.38, phys: true }), parent || heart, Math.max(64, pts.length * 2), 12);
+  corPaths.push({ pts, r: Math.max(r0, 0.1), w: Math.min(0.82, 0.44 + 1.7 * r0) });
+  return tube(id, sub, pts, r0, r1, mat || matFor(id, C.cor, { rough: 0.36, phys: true, tex: 3, coat: 0.6 }), parent || heart, Math.max(64, pts.length * 2), 12);
 }
 const ostL = sinusPoint('ak', V3(1, 0, -0.35)), ostR = sinusPoint('ak', V3(-0.35, 0, 1));
 const lmEnd = L(1.9, 1.5, 0.15);
@@ -2455,31 +2596,49 @@ const rcaCtrl = [V3(-0.9, 0.9, 1.7), V3(-2.0, 0.45, 2.05), V3(-3.2, 0.15, 1.3), 
 cor('rca', null, [ostR, ostR.clone().lerp(V3(-0.9, 0.9, 1.7), 0.5).add(V3(0, 0.1, 0.25))], rcaCtrl, 0.22, 0.13);
 cor('rma', null, [], [V3(-3.5, 0.0, 0.95), V3(-3.3, -1.3, 1.05), V3(-2.9, -2.7, 1.05), V3(-2.3, -3.9, 1.0)], 0.12, 0.05, vent);
 cor('rpd', null, [], [V3(-0.8, -0.45, -2.95), V3(-0.3, -1.6, -2.9), V3(0.1, -3.0, -2.85), V3(0.55, -4.5, -2.4), V3(0.95, -5.8, -1.5)], 0.15, 0.06, vent);
-const mV = (id) => matFor(id, C.vein, { rough: 0.4, phys: true });
+const mV = (id) => matFor(id, C.vein, { rough: 0.4, phys: true, tex: 3, coat: 0.55 });
 cor('vcm', null, [], [V3(1.5, -6.2, 0.5), V3(1.25, -4.5, 1.85), V3(1.15, -3.0, 2.4), V3(1.25, -1.5, 2.35), V3(1.75, -0.1, 1.95), V3(2.75, 0.75, 0.75), V3(3.45, 0.45, -0.6), V3(3.1, 0.3, -1.95)], 0.15, 0.2, vent, mV('vcm'));
 cor('sinus_cor', null, [], [V3(3.1, 0.3, -1.95), V3(2.0, 0.2, -3.0), V3(0.6, 0.1, -3.35), V3(-0.8, 0.05, -3.0), V3(-1.6, 0.15, -2.45)], 0.32, 0.4, heart, mV('sinus_cor'), 0.18);
 cor('vcmed', null, [], [V3(1.3, -5.9, -1.4), V3(0.9, -4.5, -2.5), V3(0.45, -3.0, -2.95), V3(0.0, -1.6, -3.05), V3(-0.4, -0.3, -3.05)], 0.11, 0.17, vent, mV('vcmed'));
 cor('vcp', null, [], [V3(-3.6, -0.3, 0.6), V3(-3.75, -0.25, -0.4), V3(-3.2, -0.15, -1.5), V3(-2.0, 0.0, -2.5)], 0.08, 0.11, heart, mV('vcp'));
 
+// Kleinere Äste und Zuflüsse (zählen zur jeweiligen Hauptstruktur; der Name erscheint beim Antippen)
+function twig(id, sub, ctrl, r0, r1, parent) { const m = cor(id, sub, [], ctrl, r0, r1, parent, mats[id]); const c = corPaths[corPaths.length - 1]; c.r = r0; c.w = 0.52; return m; }
+(() => { // Sinusknotenarterie: aus der proximalen RCA an der medialen RA-Wand (zwischen Herzohr und Aorta) zur Einmündung der V. cava superior
+  const c = V3(...D.ra.c); const on = (d) => marchOut(c.clone().addScaledVector(V3(...d).normalize(), 5), c, -0.03);
+  const pts = [proj(V3(-1.5, 0.7, 1.95), 0.03), on([0.9, -0.15, 0.75]), on([0.85, 0.35, 0.5]), on([0.6, 0.85, 0.25]), on([0.2, 1, 0.0]), on([-0.15, 1, -0.2])];
+  tube('rca', 'R. nodi sinuatrialis (Sinusknotenarterie)', pts, 0.075, 0.04, mats.rca, atr, 48, 8); corPaths.push({ pts: curveOf(pts).getPoints(40), r: 0.075, w: 0.5 });
+})();
+twig('rca', 'R. ventricularis dexter anterior', [V3(-2.15, 0.4, 2.0), V3(-1.9, -0.8, 2.3), V3(-1.5, -2.0, 2.4)], 0.08, 0.035, vent);
+twig('rca', 'R. ventricularis dexter anterior', [V3(-2.95, 0.2, 1.5), V3(-2.7, -1.0, 1.8), V3(-2.3, -2.2, 1.9)], 0.075, 0.035, vent);
+twig('rca', 'R. posterolateralis dexter (RPLD)', [V3(-0.8, -0.45, -2.95), V3(0.3, -0.55, -3.3), V3(1.2, -1.6, -3.1), V3(1.6, -3.0, -2.8)], 0.11, 0.045, vent);
+twig('dg', 'D3', [V3(0.9, -3.6, 2.0), V3(1.7, -4.4, 1.7), V3(2.2, -5.2, 1.0)], 0.075, 0.035, vent);
+twig('rcx', 'R. posterolateralis sinister', [V3(2.2, -0.05, -2.75), V3(2.45, -1.4, -2.55), V3(2.25, -2.8, -2.35)], 0.1, 0.045, vent);
+twig('rcx', 'R. atrialis sinister', [V3(3.2, 0.25, -0.9), V3(3.0, 1.2, -1.5), V3(2.4, 2.0, -2.0)], 0.06, 0.035, atr);
+twig('sinus_cor', 'V. posterior ventriculi sinistri', [V3(2.6, -3.6, -1.55), V3(2.8, -2.2, -2.0), V3(2.6, -0.8, -2.35), V3(2.3, 0.15, -2.6)], 0.07, 0.13, vent);
+twig('vcm', 'V. marginalis sinistra', [V3(3.5, -3.6, -0.8), V3(3.9, -2.2, -0.9), V3(3.75, -0.8, -1.0), V3(3.4, 0.3, -1.05)], 0.07, 0.12, vent);
+twig('vcm', 'V. ventriculi dextri anterior', [V3(-1.2, -2.6, 2.45), V3(-1.7, -1.3, 2.4), V3(-2.3, -0.2, 2.1)], 0.05, 0.08, vent);
+
 // ---------- Myokard-Meshes mit Vertexfarben (Fett, Okklusion) ----------
 (() => {
   const P = MYO.P, Nn = MYO.N, nV = P.length / 3;
-  const col = new Float32Array(nV * 3); const tmp = new THREE.Color();
-  const HC = 0.8, hash = new Map(); const hk = (x, y, z) => Math.floor(x / HC) + ',' + Math.floor(y / HC) + ',' + Math.floor(z / HC);
-  corPaths.forEach((c) => c.pts.forEach((q, i) => { if (i % 1) return; const k = hk(q.x, q.y, q.z); if (!hash.has(k)) hash.set(k, []); hash.get(k).push([q, c.r]); }));
-  const nearCor = (q) => { let dm = 9; const ix = Math.floor(q.x / HC), iy = Math.floor(q.y / HC), iz = Math.floor(q.z / HC);
-    for (let dx = -1; dx <= 1; dx++) for (let dy = -1; dy <= 1; dy++) for (let dz = -1; dz <= 1; dz++) { const L2 = hash.get((ix + dx) + ',' + (iy + dy) + ',' + (iz + dz)); if (L2) for (const [s0, r] of L2) { const d = s0.distanceTo(q) - r; if (d < dm) dm = d; } }
-    return dm; };
-  const a = new THREE.Vector3(), b = new THREE.Vector3(), p = new THREE.Vector3(), ab = new THREE.Vector3();
+  const col = new Float32Array(nV * 3); const tis = new Float32Array(nV * 3); const tmp = new THREE.Color();
+  const HC = 0.9, hash = new Map(); const hk = (x, y, z) => Math.floor(x / HC) + ',' + Math.floor(y / HC) + ',' + Math.floor(z / HC);
+  corPaths.forEach((c) => c.pts.forEach((q) => { const k = hk(q.x, q.y, q.z); if (!hash.has(k)) hash.set(k, []); hash.get(k).push([q, c.r, c.w]); }));
+  // Fettanteil entlang der Gefäße: größere Gefäße liegen in breiteren Fettstraßen
+  const corFat = (q) => { let f = 0; const ix = Math.floor(q.x / HC), iy = Math.floor(q.y / HC), iz = Math.floor(q.z / HC);
+    for (let dx = -1; dx <= 1; dx++) for (let dy = -1; dy <= 1; dy++) for (let dz = -1; dz <= 1; dz++) { const L2 = hash.get((ix + dx) + ',' + (iy + dy) + ',' + (iz + dz)); if (L2) for (const [s0, r, w] of L2) { const g = w * smooth(0.22 + 2.4 * r, 0.02, s0.distanceTo(q) - r); if (g > f) f = g; } }
+    return f; };
+  const p = new THREE.Vector3();
   for (let v = 0; v < nV; v++) {
     const vi = vInfo[v]; const x = P[3 * v], y = P[3 * v + 1], z = P[3 * v + 2];
-    p.set(x, y, z);
+    p.set(x, y, z); let fat = 0;
     if (vi.epi) {
       tmp.copy(['ra', 'la'].includes(vi.lab) ? COL.epiA : ['rau', 'lau'].includes(vi.lab) ? COL.au : COL.epiV);
-      const dm = nearCor(p);
-      const avg = Math.abs(W[v] - 0.5) < 0.26 ? 1 - Math.abs(W[v] - 0.5) / 0.26 : 0; // Sulcus coronarius
-      const fat = clamp(Math.max(smooth(0.3, 0.0, dm) * 0.6, avg * 0.5), 0, 1);
-      tmp.lerp(COL.fat, fat);
+      const avg = clamp(1 - Math.abs(W[v] - 0.5) / 0.3, 0, 1); // Sulcus coronarius
+      fat = Math.max(corFat(p), avg * 0.84);
+      if (vi.lab === 'rv') fat = Math.max(fat, 0.33 + 0.17 * noise3(x * 0.8 + 3, y * 0.8, z * 0.8)); // fleckiges Fett über der freien RV-Wand
+      fat = Math.max(fat, 0.82 * smooth(2.1, 1.2, Math.min(p.distanceTo(VD.ak.c), p.distanceTo(VD.pk.c) + 0.25))); // Fettpolster um die Arterienwurzeln
     } else {
       tmp.copy(vi.lab === 'ivs' ? COL.sept : (['ra', 'la', 'ias'].includes(vi.lab) ? COL.endoA : COL.endo));
       if (vi.lab === 'fossa') tmp.copy(COL.fossa);
@@ -2488,7 +2647,8 @@ cor('vcp', null, [], [V3(-3.6, -0.3, 0.6), V3(-3.75, -0.25, -0.4), V3(-3.2, -0.1
     const nx = Nn[3 * v], ny = Nn[3 * v + 1], nz = Nn[3 * v + 2]; let occ = 0;
     for (let i = 1; i <= 3; i++) { const dd = 0.28 * i; occ += (dd - Math.max(0, solid(x + nx * dd, y + ny * dd, z + nz * dd))) / Math.pow(2, i); }
     const ao = clamp(1 - occ * 1.6, 0.35, 1);
-    col[3 * v] = tmp.r * ao; col[3 * v + 1] = tmp.g * ao; col[3 * v + 2] = tmp.b * ao;
+    col[3 * v] = tmp.r; col[3 * v + 1] = tmp.g; col[3 * v + 2] = tmp.b;
+    tis[3 * v] = clamp(fat, 0, 1); tis[3 * v + 1] = vi.epi ? 1 : 0; tis[3 * v + 2] = ao;
   }
   // Dreiecke nach Label aufteilen
   const buckets = {};
@@ -2500,11 +2660,11 @@ cor('vcp', null, [], [V3(-3.6, -0.3, 0.6), V3(-3.75, -0.25, -0.4), V3(-3.2, -0.1
   }
   const ID = { fossaL: ['fossa', 'Limbus fossae ovalis'], ivs: ['ivs', null], ias: ['ias', null], fossa: ['fossa', null] };
   Object.keys(buckets).forEach((lab) => {
-    const tris = buckets[lab]; const map = new Map(); const pos = [], nor = [], cl = [], ww = [], ix = [], src = [];
-    tris.forEach((v) => { let k = map.get(v); if (k == null) { k = pos.length / 3; map.set(v, k); pos.push(P[3 * v], P[3 * v + 1], P[3 * v + 2]); nor.push(Nn[3 * v], Nn[3 * v + 1], Nn[3 * v + 2]); cl.push(col[3 * v], col[3 * v + 1], col[3 * v + 2]); ww.push(W[v]); src.push(v); } ix.push(k); });
+    const tris = buckets[lab]; const map = new Map(); const pos = [], nor = [], cl = [], ww = [], ix = [], src = [], tt = [];
+    tris.forEach((v) => { let k = map.get(v); if (k == null) { k = pos.length / 3; map.set(v, k); pos.push(P[3 * v], P[3 * v + 1], P[3 * v + 2]); nor.push(Nn[3 * v], Nn[3 * v + 1], Nn[3 * v + 2]); cl.push(col[3 * v], col[3 * v + 1], col[3 * v + 2]); tt.push(tis[3 * v], tis[3 * v + 1], tis[3 * v + 2]); ww.push(W[v]); src.push(v); } ix.push(k); });
     const g = new THREE.BufferGeometry();
     g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute('normal', new THREE.Float32BufferAttribute(nor, 3));
-    g.setAttribute('color', new THREE.Float32BufferAttribute(cl, 3)); g.setAttribute('aW', new THREE.Float32BufferAttribute(ww, 1)); g.setIndex(ix); addMyoAttrs(g); g.userData.src = Int32Array.from(src); g.userData.P0 = Float32Array.from(pos); g.userData.N0 = Float32Array.from(nor); g.userData.C0 = Float32Array.from(cl);
+    g.setAttribute('color', new THREE.Float32BufferAttribute(cl, 3)); g.setAttribute('aW', new THREE.Float32BufferAttribute(ww, 1)); g.setAttribute('aTis', new THREE.Float32BufferAttribute(tt, 3)); g.setIndex(ix); addMyoAttrs(g); g.userData.src = Int32Array.from(src); g.userData.P0 = Float32Array.from(pos); g.userData.N0 = Float32Array.from(nor); g.userData.C0 = Float32Array.from(cl);
     const [id, sub] = ID[lab] || [lab, null];
     const m = new THREE.Mesh(g, mats[id] || myoMat(id)); heart.add(m); reg(m, id, sub); myoGeos.push({ geo: g, lab, mesh: m });
   });
@@ -2522,7 +2682,7 @@ function papMuscle(id, sub, origin, dir, toward, frac, r0, mat) {
   (tips[id] = tips[id] || []).push(o);
   return { base, tip };
 }
-const mPap = matFor('pm_al', C.pap, { phys: true }); const mPap2 = matFor('pm_pm', C.pap, { phys: true }); const mPapR = matFor('pm_rv', C.pap, { phys: true });
+const mPap = matFor('pm_al', C.pap, { phys: true, tex: 4 }); const mPap2 = matFor('pm_pm', C.pap, { phys: true, tex: 4 }); const mPapR = matFor('pm_rv', C.pap, { phys: true, tex: 4 });
 const papAL = papMuscle('pm_al', null, lvc, V3(0.75, -0.55, 0.4), VD.mk.c, 0.42, 0.42, mPap);
 const papPM = papMuscle('pm_pm', null, lvc, V3(-0.2, -0.55, -0.8), VD.mk.c, 0.42, 0.42, mPap2);
 const papRA = papMuscle('pm_rv', 'Vorderer Papillarmuskel (größter)', rvc, V3(0.1, -0.5, 0.86), VD.tk.c, 0.42, 0.34, mPapR);
@@ -2533,7 +2693,7 @@ const septAnchors = [];
 });
 const septMB = marchIn(rvc, lvc.clone().add(V3(0, -1.2, 0)).sub(rvc), -0.1);
 const mbMid = septMB.clone().lerp(papRA.base, 0.5).lerp(rvc, 0.12);
-tube('tsm', null, [septMB, mbMid, papRA.base], 0.2, 0.25, matFor('tsm', C.tsm, { phys: true }), vent, 24, 14);
+tube('tsm', null, [septMB, mbMid, papRA.base], 0.2, 0.25, matFor('tsm', C.tsm, { phys: true, tex: 4 }), vent, 24, 14);
 // Trabeculae carneae (Teil der Ventrikel, in die Kontraktion eingebunden)
 const trabMeshes = []; let seed = 7; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
 function trabeculae(id, origin, n, yMax, r) {
@@ -2742,7 +2902,7 @@ function flyTo(dir, dist, target, name) {
   const tgt = target ? target.clone() : controls.target.clone();
   const d = dist || camera.position.distanceTo(controls.target);
   camAnim = { t: 0, p0: camera.position.clone(), p1: tgt.clone().add(dir.clone().normalize().multiplyScalar(d)), t0: controls.target.clone(), t1: tgt, up0: camera.up.clone() };
-  if (name) $('#viewname').textContent = 'Ansicht: ' + name;
+  if (name) $('#viewname').textContent = name;
 }
 function setView(key, dist) {
   const v = VIEWS.find((x) => x[0] === key); if (!v) return;
@@ -2791,7 +2951,16 @@ function pick(cx, cy) {
 // =====================================================================
 //  UI-Grundgerüst: Module, Bottom-Sheets, Strukturbaum, Befundkarte
 // =====================================================================
-const IS_PHONE = () => window.innerWidth < 768;
+const COARSE = (() => { try { return matchMedia('(pointer:coarse)').matches; } catch (e) { return false; } })();
+const IS_PHONE = () => window.innerWidth < 768 || (window.innerHeight < 520 && COARSE);
+const IS_LAND = () => IS_PHONE() && window.innerWidth > window.innerHeight && window.innerHeight < 520; // Telefon im Querformat
+function syncPhone() { const d = document.documentElement; d.classList.toggle('phone', IS_PHONE()); d.classList.toggle('land', IS_LAND()); }
+syncPhone();
+// Energiesparen: gezeichnet wird nur, solange sich etwas bewegt oder bedient wird (sonst ca. 4 Bilder/s)
+let activeUntil = performance.now() + 4000, lastDraw = 0;
+const wake = (ms) => { const t = performance.now() + (ms || 1200); if (t > activeUntil) activeUntil = t; };
+['pointerdown', 'pointermove', 'pointerup', 'wheel', 'keydown', 'input', 'change', 'click', 'touchstart', 'touchmove', 'resize', 'orientationchange', 'focus', 'visibilitychange'].forEach((ev) => window.addEventListener(ev, () => wake(1500), { passive: true, capture: true }));
+controls.addEventListener('change', () => wake(350));
 const frameHooks = []; // (dt, time) => void
 const infoExtras = []; // (id) => html
 let infoCustom = null; // (id) => html | null
@@ -2830,9 +2999,51 @@ let curModule = 'str';
 const moduleHooks = {}; // id -> () beim Öffnen
 
 function setSheet(name) {
-  document.body.dataset.sheet = name || 'none';
-  if (name !== 'side' && name !== 'info' && name !== 'dock') document.body.classList.remove('sheet-tall');
-  updateViewOffset();
+  const b = document.body; const prev = b.dataset.sheet; name = name || 'none';
+  if (name === 'info' && prev !== 'info') { b.classList.add('sheet-peek'); b.classList.remove('sheet-tall'); } // Befundkarte öffnet kompakt, das Modell bleibt sichtbar
+  if (name !== 'info') b.classList.remove('sheet-peek');
+  if (name !== prev && name !== 'info') b.classList.remove('sheet-tall');
+  b.dataset.sheet = name;
+  if (name !== 'none') histPush();
+  updateViewOffset(); setTimeout(updateViewOffset, 320); wake(1500);
+}
+// Zurück-Taste bzw. Zurück-Geste (Android, iOS) schließt zuerst geöffnete Bereiche statt die App zu verlassen
+// (ein einzelner Verlaufseintrag als „Wächter“; er wird nach jedem Schließen erneuert)
+let histArmed = false;
+function histPush() { if (!IS_PHONE() || histArmed) return; try { history.pushState({ hz: 1 }, ''); histArmed = true; } catch (e) {} }
+window.addEventListener('popstate', () => {
+  if (!histArmed) return; histArmed = false;
+  const sh = document.body.dataset.sheet;
+  if (!$('#modal').hidden) { $('#modal').hidden = true; histPush(); return; }
+  if (sh === 'none') { toast('Zum Verlassen erneut „Zurück“.', 1800); return; }
+  if (sh === 'info') select(null); else if (sh === 'dock') closeDock(); else setSheet('none');
+  histPush();
+});
+// Bereichshöhe schrittweise ändern: kompakt/normal -> groß bzw. zurück -> schließen
+function sheetStep(up) {
+  const b = document.body, sh = b.dataset.sheet;
+  if (up) { b.classList.remove('sheet-peek'); b.classList.add('sheet-tall'); }
+  else if (b.classList.contains('sheet-tall')) { b.classList.remove('sheet-tall'); if (sh === 'info') b.classList.add('sheet-peek'); }
+  else if (sh === 'info') select(null); else if (sh === 'dock') closeDock(); else setSheet('none');
+  updateViewOffset(); setTimeout(updateViewOffset, 320);
+}
+const sheetToggle = () => sheetStep(!document.body.classList.contains('sheet-tall'));
+// Wischen am Griff oder an der Kopfzeile: nach oben vergrößern, nach unten verkleinern/schließen
+function sheetDrag(el) {
+  let y0 = null, dy = 0, dragged = false;
+  el.addEventListener('pointerdown', (e) => {
+    if (!IS_PHONE() || IS_LAND()) return;
+    const grab = e.target.closest('[data-handle]') || (!e.target.closest('button,input,select,a,canvas,.seg') && (e.target.closest('header') || e.target.closest('.sheet-grab')));
+    if (!grab) return; y0 = e.clientY; dy = 0; dragged = false;
+  });
+  el.addEventListener('pointermove', (e) => {
+    if (y0 == null) return; dy = e.clientY - y0;
+    if (!dragged && Math.abs(dy) > 8) { dragged = true; el.style.transition = 'none'; try { el.setPointerCapture(e.pointerId); } catch (err) {} }
+    if (dragged) el.style.transform = `translateY(${Math.max(-24, dy)}px)`;
+  });
+  const end = () => { if (y0 == null) return; y0 = null; el.style.transition = ''; el.style.transform = ''; if (!dragged) return; if (dy < -28) sheetStep(true); else if (dy > 44) sheetStep(false); setTimeout(() => (dragged = false), 60); };
+  el.addEventListener('pointerup', end); el.addEventListener('pointercancel', end);
+  el.addEventListener('click', (e) => { if (dragged) { e.stopPropagation(); e.preventDefault(); } }, true);
 }
 function openModule(id, opts = {}) {
   const m = MODULES.find((x) => x.id === id); if (!m) return;
@@ -2853,20 +3064,47 @@ function buildNav() {
   const more = document.createElement('button'); more.className = 'rail-btn'; more.dataset.mod = 'more'; more.innerHTML = svgI('more') + '<span>Mehr</span>'; more.onclick = showMoreMenu; mn.appendChild(more);
   $('#sideToggle').onclick = () => { document.body.classList.toggle('side-closed'); updateViewOffset(); };
   document.querySelectorAll('[data-close-sheet]').forEach((b) => (b.onclick = () => setSheet('none')));
-  document.querySelectorAll('[data-handle]').forEach((b) => (b.onclick = () => { document.body.classList.toggle('sheet-tall'); updateViewOffset(); }));
-  $('#mBrand').onclick = showMoreMenu;
+  document.querySelectorAll('[data-handle]').forEach((b) => (b.onclick = sheetToggle));
+  ['#side', '#info', '#dock'].forEach((q) => sheetDrag($(q)));
+  $('#mBrand').onclick = showMoreMenu; $('#tbView').onclick = showViewMenu;
 }
 function showMoreMenu() {
   modal(`<div class="flex items-center justify-between mb-3"><h2 class="disp text-[24px] m-0">Module</h2><button class="eye" data-x style="border:1px solid var(--line);width:34px;height:34px">✕</button></div>
   <div class="grid grid-cols-3 gap-2">${MODULES.map((m) => `<button class="card flex flex-col items-center gap-2 py-4" data-go="${m.id}" style="color:${m.id === curModule ? 'var(--accent)' : 'var(--fg)'}">${svgI(m.id, 24)}<span class="text-[12.5px]">${m.short}</span></button>`).join('')}</div>
-  <p class="hint mt-4">Tipp: Ein Tippen auf eine Struktur öffnet die Befundkarte. Mit zwei Fingern zoomen und verschieben.</p>`, (el) => {
+  <p class="hint mt-4">Tipp: Ein Tippen auf eine Struktur öffnet die Befundkarte. Mit einem Finger drehen, mit zwei Fingern zoomen und verschieben. Bereiche lassen sich am Griff nach oben oder unten wischen.</p>${installHint()}`, (el) => {
     el.querySelectorAll('[data-go]').forEach((b) => (b.onclick = () => { closeModal(); openModule(b.dataset.go); }));
+    const ib = el.querySelector('#instBtn'); if (ib) ib.onclick = () => { const p = deferredInstall; deferredInstall = null; closeModal(); if (p) { try { p.prompt(); } catch (e) {} } };
   });
+}
+// Schnellwahl der Ansicht über die obere Leiste
+function showViewMenu() {
+  modal(`<div class="flex items-center justify-between mb-3"><h2 class="disp text-[24px] m-0">Ansicht</h2><button class="eye" data-x aria-label="Schließen" style="border:1px solid var(--line);width:40px;height:40px">✕</button></div>
+  <p class="label">Standardansichten</p><div class="vgrid">${VIEWS.map(([k, n]) => `<button class="chip sm" data-vw="${k}">${n}</button>`).join('')}</div>
+  <p class="label mt-4">Präparate</p><div class="vgrid" style="grid-template-columns:repeat(2,minmax(0,1fr))">${PRESETS.map(([n], i) => `<button class="chip" data-pr="${i}">${n}</button>`).join('')}</div>
+  <div class="mt-4" style="display:grid;gap:.4rem;grid-template-columns:repeat(2,minmax(0,1fr))"><button class="chip" data-act="shot">Bild speichern</button><button class="chip" data-act="share">Ansicht teilen</button></div>
+  <div class="mt-2"><button class="btn ghost" data-go="view">Schnitte, Deckkraft, Messen &amp; mehr</button></div>`, (el) => {
+    el.querySelector('[data-act=shot]').onclick = () => { closeModal(); screenshot(); };
+    el.querySelector('[data-act=share]').onclick = () => { closeModal(); share(); };
+    el.querySelectorAll('[data-vw]').forEach((b) => (b.onclick = () => { closeModal(); setView(b.dataset.vw); }));
+    el.querySelectorAll('[data-pr]').forEach((b) => (b.onclick = () => { closeModal(); isolated = null; PRESETS[+b.dataset.pr][1](); applyVisibility(); buildTree(); renderInfo(); }));
+    el.querySelector('[data-go]').onclick = () => { closeModal(); openModule('view'); };
+  });
+}
+// Installation als App auf dem Home-Bildschirm
+let deferredInstall = null;
+window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredInstall = e; });
+const IS_STANDALONE = () => { try { return matchMedia('(display-mode: standalone)').matches || navigator.standalone === true; } catch (e) { return false; } };
+function installHint() {
+  if (IS_STANDALONE()) return '';
+  if (deferredInstall) return '<div class="card mt-3 flex items-center gap-3"><span class="hint flex-1">Als App auf dem Gerät installieren (Vollbild, auch offline).</span><button class="btn" id="instBtn" style="width:auto;white-space:nowrap">Installieren</button></div>';
+  if (/iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) return '<div class="card mt-3 hint">Als App nutzen: in Safari auf <b style="color:var(--fg)">Teilen</b> tippen und <b style="color:var(--fg)">„Zum Home-Bildschirm“</b> wählen. Der Atlas startet dann im Vollbild und funktioniert auch offline.</div>';
+  if (/Android/i.test(navigator.userAgent)) return '<div class="card mt-3 hint">Als App nutzen: im Browser-Menü <b style="color:var(--fg)">„Zum Startbildschirm hinzufügen“</b> bzw. <b style="color:var(--fg)">„App installieren“</b> wählen.</div>';
+  return '';
 }
 
 // ---------- Modal & Toast ----------
 function modal(html, wire) {
-  const m = $('#modal'); $('#modalBody').innerHTML = html; m.hidden = false;
+  const m = $('#modal'); $('#modalBody').innerHTML = html; m.hidden = false; histPush(); wake(1500);
   m.onclick = (e) => { if (e.target === m || e.target.closest('[data-x]')) closeModal(); };
   if (wire) wire($('#modalBody'));
 }
@@ -2890,7 +3128,8 @@ function updateViewOffset() {
     const dock = $('#dock'); if (dock && !dock.hidden) ty = -Math.min(dock.offsetHeight, h * 0.5) / 2;
   } else {
     const sh = document.body.dataset.sheet; const el = sh === 'side' ? $('#side') : sh === 'info' ? $('#info') : sh === 'dock' ? $('#dock') : null;
-    if (el) ty = -Math.min(el.offsetHeight, h * 0.8) / 2 + 20;
+    if (IS_LAND()) tx = (62 + (el ? el.offsetWidth : 0)) / 2;
+    else if (el) ty = -Math.min(el.offsetHeight, h * 0.8) / 2 + 20;
   }
   vOff.tx = tx; vOff.ty = ty;
 }
@@ -2960,7 +3199,7 @@ function renderInfo() {
   const custom = infoCustom ? infoCustom(selected) : null;
   const s = S[selected]; const g = gById[s.g];
   const head = `<button class="sheet-handle" data-handle aria-label="Bereich vergrößern"></button>
-    <div class="flex items-start gap-3"><div class="flex-1 min-w-0"><span class="tag"><i class="inline-block w-2 h-2 rounded-full" style="background:${g.color}"></i>${esc(g.name)}</span>
+    <div class="flex items-start gap-3 sheet-grab"><div class="flex-1 min-w-0"><span class="tag"><i class="inline-block w-2 h-2 rounded-full" style="background:${g.color}"></i>${esc(g.name)}</span>
       <h2>${esc(nameOf(selected))}</h2><p class="lat">${esc(nameMode === 'de' ? s.lat : s.name)}</p>${selSub ? `<div class="text-[12px] mt-1" style="color:var(--accent)">Gewählt: ${esc(selSub)}</div>` : ''}</div>
       <button class="eye" id="infoClose" aria-label="Auswahl schließen" style="border:1px solid var(--line);width:34px;height:34px">✕</button></div>`;
   const list = (arr) => '<ul>' + arr.map((x) => `<li>${esc(x)}</li>`).join('') + '</ul>';
@@ -2976,7 +3215,7 @@ function renderInfo() {
   $('#infoClose').onclick = () => select(null);
   $('#focusBtn').onclick = () => focusOn(selected);
   $('#isoBtn').onclick = () => { isolated = isolated === selected ? null : selected; if (isolated) { vis[isolated] = true; gvis[S[isolated].g] = true; applyVisibility(); buildTree(); } renderInfo(); };
-  box.querySelectorAll('[data-handle]').forEach((b) => (b.onclick = () => { document.body.classList.toggle('sheet-tall'); updateViewOffset(); }));
+  box.querySelectorAll('[data-handle]').forEach((b) => (b.onclick = sheetToggle));
   if (IS_PHONE()) setSheet('info');
   updateViewOffset();
 }
@@ -3087,14 +3326,24 @@ const tip = $('#tip'); let down = null; let mouse = null; let needPick = false;
 canvas.addEventListener('pointerdown', (e) => { down = [e.clientX, e.clientY]; });
 canvas.addEventListener('pointerup', (e) => {
   if (!down) return; const d = Math.hypot(e.clientX - down[0], e.clientY - down[1]); down = null;
-  if (d < 7) {
-    const h = pick(e.clientX, e.clientY);
+  if (d < (e.pointerType === 'touch' ? 12 : 7)) {
+    let h = pick(e.clientX, e.clientY);
+    if (e.pointerType === 'touch' && !tool) h = touchAssist(h, e.clientX, e.clientY);
     if (clickHook && clickHook(h, e)) return;
     if (h) select(h.object.userData.id, h.object.userData.sub, false, h); else if (!quiz.on) { select(null); if (IS_PHONE() && document.body.dataset.sheet !== 'none') setSheet('none'); }
     lastHit = h;
   }
 });
 let lastHit = null;
+// Fingerbedienung: dünne Strukturen (Koronarien, Venen, Reizleitung, Chordae) im Umkreis von ca. 11 px bevorzugen
+const THIN_G = { koronar: 1, venen: 1, reiz: 1 };
+const isThin = (h) => !!h && (THIN_G[S[h.object.userData.id].g] || h.object.userData.id === 'chordae' || h.object.userData.id === 'lig_art');
+function touchAssist(h, x, y) {
+  if (isThin(h)) return h;
+  let best = null;
+  for (let i = 0; i < 8; i++) { const a = i * Math.PI / 4; const n = pick(x + Math.cos(a) * 11, y + Math.sin(a) * 11); if (isThin(n) && (!h || n.distance < h.distance + 0.8) && (!best || n.distance < best.distance)) best = n; }
+  return best || h;
+}
 canvas.addEventListener('dblclick', (e) => { const h = pick(e.clientX, e.clientY); if (h) { if (!quiz.on) select(h.object.userData.id, h.object.userData.sub); focusOn(h.object.userData.id); } });
 canvas.addEventListener('pointermove', (e) => { if (e.pointerType === 'touch') return; mouse = [e.clientX, e.clientY]; needPick = true; });
 canvas.addEventListener('pointerleave', () => { mouse = null; hovered = null; tip.hidden = true; canvas.classList.remove('hovering'); });
@@ -3133,7 +3382,7 @@ function drawGizmo() {
 
 // ---------- Loop ----------
 function distScale() { const asp = canvas.clientWidth / Math.max(1, canvas.clientHeight); return asp < 1 ? clamp(1 / (asp * 1.2), 1, 1.9) : 1; }
-function resize() { const w = canvas.clientWidth, h = canvas.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); updateViewOffset(); }
+function resize() { syncPhone(); const w = canvas.clientWidth, h = canvas.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); updateViewOffset(); }
 window.addEventListener('resize', resize);
 let last = performance.now(); let curSt = null; let shotReq = null;
 function frame(now) {
@@ -3152,6 +3401,9 @@ function frame(now) {
   }
   controls.update();
   applyViewOffset(dt);
+  const busy = playing || camAnim || now < activeUntil || flash.t > 0 || shotReq || (actMode && actPlaying) || tavi.anim || Math.abs(vOff.tx - vOff.x) > 0.5 || Math.abs(vOff.ty - vOff.y) > 0.5;
+  if (!busy && now - lastDraw < 240) { requestAnimationFrame(frame); return; }
+  lastDraw = now;
   if (playing) {
     const prev = simT; simT += dt * 1000 * (slow ? 0.25 : 1);
     const st = rhythmState(simT); curSt = st; act = st.act; applyCycle(st);
@@ -3567,7 +3819,7 @@ function bullseyeSVG() {
   ring(R[3], R[4], 60, [1, 2, 3, 4, 5, 6], 60); ring(R[2], R[3], 60, [7, 8, 9, 10, 11, 12], 60); ring(R[1], R[2], 45, [13, 14, 15, 16], 90);
   out += `<circle cx="${cx}" cy="${cy}" r="${R[1]}" fill="${fill(17)}" fill-opacity="${corState.segHi === 17 ? 1 : 0.78}" stroke="${corState.segHi === 17 ? '#ffe08a' : '#0a0e11'}" stroke-width="2" data-seg="17" style="cursor:pointer"/><text x="${cx}" y="${cy + 4}" text-anchor="middle" font-size="12" font-weight="700" fill="#0a0e11" font-family="IBM Plex Mono" pointer-events="none">17</text>`;
   const lab = (t, x, y) => `<text x="${x}" y="${y}" text-anchor="middle" font-size="10.5" fill="#8e9c9f" font-family="IBM Plex Sans">${t}</text>`;
-  return `<svg viewBox="-6 -10 312 322" width="100%" role="img" aria-label="AHA-17-Segment-Bullseye">${out}${lab('anterior', 150, 2)}${lab('inferior', 150, 308)}${lab('septal', 6, 154)}${lab('lateral', 294, 154)}</svg>`;
+  return `<svg viewBox="-24 -10 348 322" width="100%" role="img" aria-label="AHA-17-Segment-Bullseye">${out}${lab('anterior', 150, 2)}${lab('inferior', 150, 308)}${lab('septal', 6, 154)}${lab('lateral', 294, 154)}</svg>`;
 }
 function renderBull() {
   $('#bullseye').innerHTML = bullseyeSVG();
@@ -4778,7 +5030,16 @@ function renderNotes() {
 
 // ---------- Bild speichern, Teilen ----------
 function screenshot() {
-  shotReq = (url) => { try { const a = document.createElement('a'); a.href = url; a.download = 'herz-atlas-' + new Date().toISOString().slice(0, 16).replace(/[:T]/g, '-') + '.png'; document.body.appendChild(a); a.click(); a.remove(); toast('Bild gespeichert (PNG).'); } catch (e) { window.open(url, '_blank'); } };
+  wake(800);
+  shotReq = (url) => {
+    const name = 'herz-atlas-' + new Date().toISOString().slice(0, 16).replace(/[:T]/g, '-') + '.png';
+    if (IS_PHONE() && navigator.canShare) {
+      try {
+        const bin = atob(url.split(',')[1]); const u8 = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+        const file = new File([u8], name, { type: 'image/png' });
+        if (navigator.canShare({ files: [file] })) { navigator.share({ files: [file], title: 'Herz-Atlas 3D' }).catch(() => {}); return; }
+      } catch (e) { console.warn(e); }
+    } try { const a = document.createElement('a'); a.href = url; a.download = 'herz-atlas-' + new Date().toISOString().slice(0, 16).replace(/[:T]/g, '-') + '.png'; document.body.appendChild(a); a.click(); a.remove(); toast('Bild gespeichert (PNG).'); } catch (e) { window.open(url, '_blank'); } };
 }
 function stateHash() {
   const r = (v) => v.toArray().map((x) => +x.toFixed(2)).join(',');
@@ -4812,7 +5073,7 @@ function applyHash() {
 // ---------- Quellen ----------
 function showSources() {
   modal(`<div class="flex items-center justify-between mb-2"><h2 class="disp text-[26px] m-0">Quellen &amp; Hinweise</h2><button class="eye" data-x style="border:1px solid var(--line);width:34px;height:34px">✕</button></div>
-  <p class="hint">Herz-Atlas 3D · Version 3.0 (November 2026) · Lehrmodell, prozedural erzeugt. Alle Maße im Modell sind Näherungen eines normalen Erwachsenenherzens (Maßstab über die LV-Längsachse ≈ 9 cm).</p>
+  <p class="hint">Herz-Atlas 3D · Version 5.0 (November 2026) · Lehrmodell, prozedural erzeugt. Alle Maße im Modell sind Näherungen eines normalen Erwachsenenherzens (Maßstab über die LV-Längsachse ≈ 9 cm).</p>
   <div class="card mt-3" style="border-color:rgba(239,107,91,.5)"><b style="color:#ffc2b8">Nicht für klinische Entscheidungen.</b> <span class="hint">EKG, Doppler, Pseudo-Echo und Hämodynamik sind didaktische Simulationen und ersetzen keine Bildgebung oder Messung am Patienten. Vor dem Einsatz in der Lehre sollte eine zweite Fachperson Texte und Proportionen prüfen.</span></div>
   <p class="label mt-4">Leitlinien &amp; Referenzen</p>
   <ul class="m-0 pl-4 flex flex-col gap-1.5 text-[13px] leading-snug">
@@ -4853,6 +5114,19 @@ camera.position.copy(controls.target).add(V3(0, 0.05, 1).normalize().multiplySca
 [initEcg, initSeg, initHemo, initPath, initImg, initInt, initLearn].forEach((f) => { try { f(); } catch (e) { console.error(f.name, e); } });
 $('#loading').remove();
 try { applyHash(); } catch (e) { console.warn(e); }
+// Erster Start auf dem Telefon: kurzer Bedienhinweis
+try { if (IS_PHONE() && !localStorage.getItem('herz_hint')) { localStorage.setItem('herz_hint', '1'); setTimeout(() => toast('Drehen: 1 Finger · Zoomen/Verschieben: 2 Finger · Struktur antippen', 6500), 900); } } catch (e) {}
+// Offline-Betrieb als Home-Bildschirm-App (nur wenn die Seite mit Manifest und Service Worker ausgeliefert wird)
+try {
+  if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol) && document.querySelector('link[rel="manifest"]')) {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+    navigator.serviceWorker.addEventListener('message', (e) => {
+      if (!e.data || e.data.type !== 'herz-update' || document.getElementById('updbar')) return;
+      const bar = document.createElement('div'); bar.id = 'updbar'; bar.className = 'glass'; bar.innerHTML = '<span>Neue Version verfügbar</span><button>Neu laden</button>';
+      bar.querySelector('button').onclick = () => location.reload(); $('#app').appendChild(bar); wake(1500);
+    });
+  }
+} catch (e) {}
 window.__herz = { S, select, setView, setClip, setOpacity, setPlaying, PRESETS, meshesById, gvis, vis, applyVisibility, buildTree, openModule, dbg: (s) => eval(s) };
 requestAnimationFrame(frame);
 }
