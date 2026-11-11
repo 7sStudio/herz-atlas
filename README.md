@@ -54,12 +54,9 @@ Herz-Atlas 3D is a Progressive Web App (PWA). Once installed it gets its own ico
 
 ### Run locally
 
-The whole app (Three.js included) is inside `index.html`. Fonts are loaded from Google Fonts and cached for offline use. Opening the file directly works. For the service worker and installation you need to serve it over HTTP(S), for example:
+Open `index.html` in any modern browser. No build step, no server, no installation needed.
 
-```bash
-python3 -m http.server 8000
-# then open http://localhost:8000
-```
+Offline mode and installing as an app only work when the page is served over HTTPS. The [GitHub Pages link](https://7sstudio.github.io/herz-atlas/) already does this.
 
 ### Disclaimer
 
@@ -115,12 +112,9 @@ Herz-Atlas 3D ist eine Progressive Web App (PWA). Installiert bekommt der Atlas 
 
 ### Lokal starten
 
-Die gesamte App (inklusive Three.js) steckt in `index.html`. Schriften kommen von Google Fonts und werden für den Offline-Betrieb gespeichert. Die Datei lässt sich direkt öffnen. Für Service Worker und Installation muss sie über HTTP(S) ausgeliefert werden, zum Beispiel:
+`index.html` einfach in einem aktuellen Browser öffnen. Kein Build-Schritt, kein Server, keine Installation nötig.
 
-```bash
-python3 -m http.server 8000
-# danach http://localhost:8000 öffnen
-```
+Offline-Betrieb und Installation als App funktionieren nur, wenn die Seite über HTTPS ausgeliefert wird. Der [GitHub-Pages-Link](https://7sstudio.github.io/herz-atlas/) erledigt das bereits.
 
 ### Hinweis
 
